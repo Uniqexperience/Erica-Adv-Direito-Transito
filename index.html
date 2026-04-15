@@ -742,19 +742,117 @@
     .social-links a:hover { color: var(--gold); }
     .footer-copy { font-size: .75rem; color: rgba(158,149,128,.5); }
 
-    /* ── RESPONSIVE ── */
+    /* ══════════════════════════════
+       RESPONSIVE — tablet  ≤ 900px
+    ══════════════════════════════ */
     @media (max-width: 900px) {
-      .pain-grid,
-      .product-card,
-      .author-grid { grid-template-columns: 1fr; }
-      .author-photo-wrap { display: none; }
-      .credentials { grid-template-columns: 1fr; }
-      .product-mockup { margin-bottom: 16px; }
+      /* seções: reduz padding vertical */
+      #pain, #produto, #bonus, #autora, #oferta, #faq {
+        padding: 64px 0;
+      }
+
+      /* grids → coluna única */
+      .pain-grid { grid-template-columns: 1fr; gap: 36px; }
+      .product-card {
+        grid-template-columns: 1fr;
+        padding: 36px 28px;
+        gap: 32px;
+      }
+      .author-grid { grid-template-columns: 1fr; gap: 0; }
+      .credentials { grid-template-columns: 1fr 1fr; }
+
+      /* foto da autora: mostrar em mobile acima do texto */
+      .author-photo-wrap {
+        display: block;
+        margin-bottom: 48px;
+      }
+      .author-photo-placeholder {
+        aspect-ratio: 3/2;
+        background-position: center 15%;
+      }
+      .author-name-card {
+        bottom: -16px;
+        left: 16px;
+        right: 16px;
+      }
+      .author-info { padding-bottom: 0; margin-top: 24px; }
+
+      /* hero */
+      #hero { padding-top: 80px; min-height: auto; padding-bottom: 60px; }
+      .hero-badges { gap: 14px; }
+
+      /* bônus */
+      .bonus-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+      /* faq */
+      .faq-q { padding: 18px 20px; font-size: .9rem; }
+      .faq-a { padding: 0 20px; }
+      .faq-item.open .faq-a { padding: 0 20px 18px; }
     }
-    @media (max-width: 600px) {
-      .offer-card { padding: 36px 24px; }
-      .price-value { font-size: 3.8rem; }
-      .hero-title { font-size: 2.2rem; }
+
+    /* ══════════════════════════════
+       RESPONSIVE — mobile  ≤ 480px
+    ══════════════════════════════ */
+    @media (max-width: 480px) {
+      /* seções */
+      #pain, #produto, #bonus, #autora, #oferta, #faq {
+        padding: 48px 0;
+      }
+
+      .container { padding: 0 18px; }
+
+      /* header */
+      .header-exclusive {
+        font-size: .65rem;
+        letter-spacing: .1em;
+        gap: 8px;
+      }
+      .header-exclusive .line { width: 24px; }
+
+      /* hero */
+      #hero { padding-top: 70px; padding-bottom: 48px; }
+      #hero .container { padding-left: 18px; padding-right: 18px; }
+      .hero-title { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+      .hero-sub { font-size: .95rem; }
+      .hero-badges { flex-direction: column; gap: 10px; margin-top: 28px; }
+
+      /* pain */
+      .pain-grid { gap: 28px; }
+
+      /* produto */
+      .product-card { padding: 28px 20px; gap: 24px; }
+      .book-mock { width: 180px; }
+
+      /* bônus → 1 coluna */
+      .bonus-grid { grid-template-columns: 1fr; }
+      .bonus-card { padding: 24px 20px; }
+
+      /* autora */
+      .author-photo-placeholder { aspect-ratio: 4/3; }
+      .credentials { grid-template-columns: 1fr; gap: 12px; }
+      .author-bio { font-size: .9rem; }
+
+      /* oferta */
+      .offer-body { padding: 28px 20px 0; }
+      .value-stack { margin: 0 0 24px; }
+      .value-row { flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0; }
+      .value-row .item-price { font-size: .75rem; }
+      .anchor-block { gap: 12px; }
+      .anchor-original .old-price { font-size: 1.3rem; }
+      .price-value { font-size: 3.6rem; }
+      .btn-pulse { width: 100%; margin: 0; border-radius: 6px; font-size: .92rem; padding: 18px 12px; }
+      .btn-sub { font-size: .68rem; padding: 0 16px; }
+      .security-note { font-size: .7rem; padding: 0 16px; flex-wrap: wrap; }
+
+      /* faq */
+      .faq-list { gap: 4px; }
+      .faq-q { padding: 16px 16px; font-size: .87rem; gap: 10px; }
+      .faq-a { padding: 0 16px; font-size: .86rem; }
+      .faq-item.open .faq-a { padding: 0 16px 16px; }
+
+      /* footer */
+      .social-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
+      footer { padding: 36px 0; }
     }
   </style>
 </head>
