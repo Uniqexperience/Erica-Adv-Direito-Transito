@@ -35,22 +35,45 @@
     /* ── UTILS ── */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     .gold { color: var(--gold); }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
     .btn {
       display: inline-block;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: #000;
-      font-weight: 700;
+      position: relative;
+      background: linear-gradient(
+        100deg,
+        #b8860b 0%,
+        #f5c842 35%,
+        #ffe066 50%,
+        #f5c842 65%,
+        #b8860b 100%
+      );
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+      color: #1a1200;
+      font-weight: 800;
       font-size: 1rem;
-      padding: 16px 36px;
-      border-radius: 4px;
+      padding: 18px 40px;
+      border-radius: 5px;
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      transition: opacity .2s, transform .2s;
+      letter-spacing: 0.1em;
+      transition: transform .2s, box-shadow .2s;
       cursor: pointer;
       border: none;
+      box-shadow:
+        0 4px 20px rgba(245, 200, 66, .45),
+        0 1px 0 rgba(255,255,255,.25) inset;
+      text-shadow: 0 1px 0 rgba(255,255,255,.3);
     }
-    .btn:hover { opacity: .88; transform: translateY(-2px); }
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow:
+        0 8px 32px rgba(245, 200, 66, .6),
+        0 1px 0 rgba(255,255,255,.25) inset;
+    }
     .btn-outline {
       background: transparent;
       border: 2px solid var(--gold);
@@ -641,28 +664,28 @@
 
     /* botão pulsante */
     @keyframes pulse-ring {
-      0%   { box-shadow: 0 0 0 0 rgba(201,168,76,.55); }
-      70%  { box-shadow: 0 0 0 18px rgba(201,168,76,0); }
-      100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+      0%   { box-shadow: 0 4px 20px rgba(245,200,66,.45), 0 0 0 0 rgba(245,200,66,.6), 0 1px 0 rgba(255,255,255,.25) inset; }
+      70%  { box-shadow: 0 4px 20px rgba(245,200,66,.45), 0 0 0 22px rgba(245,200,66,0), 0 1px 0 rgba(255,255,255,.25) inset; }
+      100% { box-shadow: 0 4px 20px rgba(245,200,66,.45), 0 0 0 0 rgba(245,200,66,0), 0 1px 0 rgba(255,255,255,.25) inset; }
     }
     @keyframes pulse-scale {
       0%, 100% { transform: scale(1); }
-      50%       { transform: scale(1.025); }
+      50%       { transform: scale(1.03); }
     }
     .btn-pulse {
       display: block;
       width: calc(100% - 96px);
       margin: 0 48px;
       text-align: center;
-      font-size: 1rem;
-      padding: 20px;
+      font-size: 1.05rem;
+      padding: 22px;
       border-radius: 6px;
       animation: pulse-ring 2s ease-out infinite, pulse-scale 2s ease-in-out infinite;
     }
     .btn-pulse:hover {
-      animation: none;
-      opacity: .9;
-      transform: translateY(-2px);
+      animation: shimmer 3s linear infinite;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 32px rgba(245,200,66,.65), 0 1px 0 rgba(255,255,255,.25) inset;
     }
     .btn-sub {
       font-size: .72rem;
