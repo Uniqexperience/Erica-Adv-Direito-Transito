@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia Prático de Direito de Trânsito — Erica Avallone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #b8920a;
+      --gold-mid:   #d4aa2a;
+      --gold-light: #f5c842;
+      --gold-shine: #ffe57a;
+      --gold-pale:  #fdf6e0;
+      --gold-border:#e8c84a;
+
+      --bg:    #ffffff;
+      --bg-2:  #faf8f3;
+      --bg-3:  #f4f0e6;
+
+      --text:  #1c1a14;
+      --muted: #6b6048;
+      --soft:  #9b8f78;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILS ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .btn {
+      display: inline-block;
+      position: relative;
+      background: linear-gradient(100deg, #8a6800 0%, #d4aa2a 30%, #ffe57a 50%, #d4aa2a 70%, #8a6800 100%);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+      color: #1c1000;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 18px 40px;
+      border-radius: 5px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 20px rgba(184,146,10,.35), 0 1px 0 rgba(255,255,255,.4) inset;
+      text-shadow: 0 1px 0 rgba(255,255,255,.35);
+    }
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 32px rgba(184,146,10,.5), 0 1px 0 rgba(255,255,255,.4) inset;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      background: var(--gold-pale);
+      padding: 5px 14px;
+      border-radius: 2px;
+      margin-bottom: 18px;
+    }
+    h2.section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .divider {
+      width: 56px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-light), transparent);
+      margin: 18px 0 30px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(184,146,10,.2);
+      box-shadow: 0 1px 16px rgba(0,0,0,.06);
+    }
+    header .container { display: flex; align-items: center; justify-content: center; }
+    .header-exclusive {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .header-exclusive .line { width: 40px; height: 1px; background: var(--gold-border); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: 90px;
+      padding-bottom: 60px;
+      overflow: hidden;
+      background: var(--bg-2);
+    }
+    /* ornamento geométrico dourado */
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 80px solid rgba(212,170,42,.07);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -120px; right: 10%;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      border: 50px solid rgba(212,170,42,.05);
+      pointer-events: none;
+    }
+    #hero .container {
+      margin: 0;
+      padding-left: max(24px, calc((100vw - 1100px) / 2 + 24px));
+      padding-right: 24px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      font-size: .75rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 500px;
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .badge .icon {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-border);
+      background: var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    /* foto hero */
+    .hero-photo-wrap {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background:
+        url('erica-avallone.png') center top / cover no-repeat;
+      border-radius: 8px;
+      border: 1px solid rgba(184,146,10,.2);
+      box-shadow: 0 24px 64px rgba(0,0,0,.12);
+    }
+    .hero-photo-card {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-mid));
+      padding: 16px 22px;
+      border-radius: 6px;
+      box-shadow: 0 8px 24px rgba(184,146,10,.35);
+    }
+    .hero-photo-card .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+    .hero-photo-card .stat-label {
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-top: 3px;
+    }
+
+    /* ── PAIN ── */
+    #pain {
+      padding: 100px 0;
+      background: var(--bg);
+      border-top: 1px solid rgba(184,146,10,.1);
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .pain-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .pain-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: .93rem;
+      color: var(--muted);
+      line-height: 1.6;
+      padding: 12px 16px;
+      background: var(--bg-2);
+      border-left: 3px solid var(--gold-border);
+      border-radius: 0 4px 4px 0;
+    }
+    .pain-list li .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    /* ── PRODUCT ── */
+    #produto {
+      padding: 100px 0;
+      background: var(--bg-2);
+    }
+    .product-card {
+      background: var(--bg);
+      border: 1px solid rgba(184,146,10,.15);
+      border-radius: 10px;
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      box-shadow: 0 8px 40px rgba(0,0,0,.06);
+    }
+    .product-mockup { display: flex; justify-content: center; }
+    .book-mock {
+      width: 220px;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--text) 0%, #2d2820 100%);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      position: relative;
+      box-shadow: -8px 12px 40px rgba(0,0,0,.2), 4px 0 0 rgba(184,146,10,.5);
+    }
+    .book-mock::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 10%; bottom: 10%;
+      width: 8px;
+      background: linear-gradient(180deg, var(--gold-mid), var(--gold-light), var(--gold-mid));
+      border-radius: 0 0 0 6px;
+    }
+    .book-mock .book-icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .book-mock .book-title {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem;
+      line-height: 1.3;
+      color: var(--gold-light);
+    }
+    .book-mock .book-author {
+      margin-top: 12px;
+      font-size: .65rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+    .includes-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+    .includes-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    .includes-list li .check { color: var(--gold); font-weight: 800; flex-shrink: 0; }
+
+    /* ── BONUS ── */
+    #bonus {
+      padding: 100px 0;
+      background: var(--bg-3);
+      border-top: 1px solid rgba(184,146,10,.1);
+    }
+    .bonus-header { text-align: center; margin-bottom: 56px; }
+    .bonus-header .divider { margin: 16px auto 0; }
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .bonus-card {
+      background: var(--bg);
+      border: 1px solid rgba(184,146,10,.15);
+      border-radius: 8px;
+      padding: 30px 26px;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 2px 12px rgba(0,0,0,.04);
+    }
+    .bonus-card:hover {
+      border-color: var(--gold-border);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(184,146,10,.12);
+    }
+    .bonus-card .bonus-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: rgba(184,146,10,.12);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .bonus-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .bonus-card p { font-size: .84rem; color: var(--muted); line-height: 1.65; }
+    .bonus-badge {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-border);
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    /* ── AUTHOR ── */
+    #autora {
+      padding: 100px 0;
+      background: var(--bg);
+      border-top: 1px solid rgba(184,146,10,.1);
+    }
+    .author-grid {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .author-photo-wrap { position: relative; }
+    .author-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background:
+        url('erica-avallone.png') center top / cover no-repeat;
+      border-radius: 8px;
+      border: 1px solid rgba(184,146,10,.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,.1);
+    }
+    .author-name-card {
+      position: absolute;
+      bottom: -20px;
+      left: 24px;
+      right: 24px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-mid));
+      padding: 16px 20px;
+      border-radius: 6px;
+      box-shadow: 0 8px 24px rgba(184,146,10,.35);
+    }
+    .author-name-card .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .author-name-card .title-label {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+    }
+    .author-info { padding-bottom: 20px; }
+    .author-bio { font-size: .93rem; color: var(--muted); line-height: 1.85; margin-bottom: 28px; }
+    .credentials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .cred-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px;
+      background: var(--bg-2);
+      border-radius: 6px;
+      border: 1px solid rgba(184,146,10,.1);
+    }
+    .cred-icon {
+      width: 36px; height: 36px;
+      border-radius: 4px;
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .cred-text strong { display: block; font-size: .86rem; color: var(--text); font-weight: 700; }
+    .cred-text span { font-size: .75rem; color: var(--soft); }
+
+    /* ── OFERTA ── */
+    #oferta {
+      padding: 100px 0;
+      background: var(--bg-2);
+      text-align: center;
+      border-top: 1px solid rgba(184,146,10,.12);
+    }
+    .offer-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--bg);
+      border: 1px solid rgba(184,146,10,.25);
+      border-radius: 12px;
+      padding: 0 0 48px;
+      overflow: hidden;
+      box-shadow: 0 16px 56px rgba(0,0,0,.08);
+    }
+    .offer-top-ribbon {
+      background: linear-gradient(135deg, var(--gold), var(--gold-mid));
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: 11px 20px;
+      text-align: center;
+    }
+    .offer-body { padding: 40px 48px 0; }
+    .anchor-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    .anchor-original { text-align: center; }
+    .anchor-original .label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--soft);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .anchor-original .old-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #bbb;
+      text-decoration: line-through;
+      text-decoration-color: rgba(200,60,60,.5);
+    }
+    .anchor-arrow { font-size: 1.4rem; color: var(--gold); }
+    .anchor-now { text-align: center; }
+    .anchor-now .label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .price-main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 3px;
+      line-height: 1;
+    }
+    .price-currency {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-top: 8px;
+    }
+    .price-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .savings-badge {
+      display: inline-block;
+      background: rgba(200,60,60,.08);
+      border: 1px solid rgba(200,60,60,.25);
+      color: #c05050;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin: 10px 0 28px;
+    }
+    .value-stack {
+      background: var(--gold-pale);
+      border: 1px solid rgba(184,146,10,.18);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 0 48px 28px;
+      text-align: left;
+    }
+    .value-stack-title {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 14px;
+    }
+    .value-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(184,146,10,.1);
+      font-size: .84rem;
+    }
+    .value-row:last-child { border-bottom: none; }
+    .value-row .item-name { color: var(--muted); }
+    .value-row .item-price {
+      color: #bbb;
+      text-decoration: line-through;
+      font-weight: 600;
+      font-size: .78rem;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+    .value-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      margin-top: 4px;
+    }
+    .value-total-row .total-label {
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .value-total-row .total-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 4px 20px rgba(184,146,10,.35), 0 0 0 0 rgba(184,146,10,.5), 0 1px 0 rgba(255,255,255,.4) inset; }
+      70%  { box-shadow: 0 4px 20px rgba(184,146,10,.35), 0 0 0 22px rgba(184,146,10,0), 0 1px 0 rgba(255,255,255,.4) inset; }
+      100% { box-shadow: 0 4px 20px rgba(184,146,10,.35), 0 0 0 0 rgba(184,146,10,0), 0 1px 0 rgba(255,255,255,.4) inset; }
+    }
+    @keyframes pulse-scale {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.03); }
+    }
+    .btn-pulse {
+      display: block;
+      width: calc(100% - 96px);
+      margin: 0 48px;
+      text-align: center;
+      font-size: 1.05rem;
+      padding: 22px;
+      border-radius: 6px;
+      animation: pulse-ring 2s ease-out infinite, pulse-scale 2s ease-in-out infinite;
+    }
+    .btn-pulse:hover {
+      animation: shimmer 3s linear infinite;
+      transform: translateY(-3px) scale(1.02);
+    }
+    .btn-sub {
+      font-size: .72rem;
+      color: var(--soft);
+      margin-top: 10px;
+      letter-spacing: .04em;
+    }
+    .security-note {
+      margin-top: 18px;
+      font-size: .73rem;
+      color: var(--soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* ── FAQ ── */
+    #faq {
+      padding: 100px 0;
+      background: var(--bg);
+      border-top: 1px solid rgba(184,146,10,.1);
+    }
+    .faq-header { text-align: center; margin-bottom: 52px; }
+    .faq-header .divider { margin: 16px auto 0; }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+    .faq-item {
+      border: 1px solid rgba(184,146,10,.15);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--bg);
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+    .faq-q {
+      padding: 20px 24px;
+      font-weight: 600;
+      font-size: .93rem;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background .2s;
+    }
+    .faq-q:hover { background: var(--gold-pale); }
+    .faq-item.open .faq-q { background: var(--gold-pale); }
+    .faq-q .arrow { color: var(--gold); transition: transform .3s; flex-shrink: 0; margin-left: 12px; }
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding .3s ease;
+      padding: 0 24px;
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      border-top: 0px solid rgba(184,146,10,.1);
+    }
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding: 0 24px 20px;
+      border-top: 1px solid rgba(184,146,10,.1);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 0;
+      background: var(--text);
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: #f0ead8;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 16px;
+      letter-spacing: .04em;
+    }
+    .footer-logo span { color: var(--gold-light); }
+    .social-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 24px; }
+    .social-links a {
+      font-size: .78rem;
+      color: #8a8070;
+      text-decoration: none;
+      letter-spacing: .08em;
+      transition: color .2s;
+    }
+    .social-links a:hover { color: var(--gold-light); }
+    .footer-copy { font-size: .73rem; color: #4a4438; }
+
+    /* ══════════════════════════════
+       RESPONSIVE — tablet  ≤ 900px
+    ══════════════════════════════ */
+    @media (max-width: 900px) {
+      #pain, #produto, #bonus, #autora, #oferta, #faq { padding: 64px 0; }
+
+      #hero .container { grid-template-columns: 1fr; gap: 40px; }
+      .hero-photo-wrap { order: -1; max-width: 340px; margin: 0 auto; }
+      .hero-content { text-align: center; }
+      .hero-sub { margin: 0 auto 36px; }
+      .hero-badges { justify-content: center; }
+
+      .pain-grid { grid-template-columns: 1fr; gap: 36px; }
+      .product-card { grid-template-columns: 1fr; padding: 36px 28px; gap: 32px; }
+      .author-grid { grid-template-columns: 1fr; gap: 0; }
+      .author-photo-wrap { margin-bottom: 52px; max-width: 360px; }
+      .credentials { grid-template-columns: 1fr 1fr; }
+      .bonus-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+      .faq-q { padding: 18px 20px; }
+      .faq-a { padding: 0 20px; }
+      .faq-item.open .faq-a { padding: 0 20px 18px; }
+    }
+
+    /* ══════════════════════════════
+       RESPONSIVE — mobile  ≤ 480px
+    ══════════════════════════════ */
+    @media (max-width: 480px) {
+      #pain, #produto, #bonus, #autora, #oferta, #faq { padding: 48px 0; }
+      .container { padding: 0 18px; }
+
+      .header-exclusive { font-size: .62rem; letter-spacing: .1em; gap: 8px; }
+      .header-exclusive .line { width: 22px; }
+
+      #hero { padding-top: 72px; padding-bottom: 48px; }
+      #hero .container { padding-left: 18px; padding-right: 18px; }
+      .hero-title { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+      .hero-sub { font-size: .93rem; }
+      .hero-badges { flex-direction: column; align-items: center; gap: 10px; margin-top: 24px; }
+      .hero-photo-wrap { max-width: 260px; }
+
+      .product-card { padding: 28px 18px; }
+      .book-mock { width: 170px; }
+
+      .bonus-grid { grid-template-columns: 1fr; }
+      .bonus-card { padding: 22px 18px; }
+
+      .author-photo-placeholder { aspect-ratio: 4/3; background-position: center 10%; }
+      .credentials { grid-template-columns: 1fr; }
+      .author-bio { font-size: .88rem; }
+
+      .offer-body { padding: 28px 20px 0; }
+      .value-stack { margin: 0 0 24px; }
+      .value-row { flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0; }
+      .anchor-original .old-price { font-size: 1.25rem; }
+      .price-value { font-size: 3.4rem; }
+      .btn-pulse { width: 100%; margin: 0; font-size: .9rem; padding: 18px 12px; }
+      .btn-sub { font-size: .67rem; padding: 0 16px; }
+      .security-note { font-size: .68rem; padding: 0 16px; flex-wrap: wrap; }
+
+      .faq-q { padding: 15px 16px; font-size: .86rem; }
+      .faq-a { padding: 0 16px; font-size: .85rem; }
+      .faq-item.open .faq-a { padding: 0 16px 15px; }
+
+      .social-links { gap: 14px; flex-wrap: wrap; }
+      footer { padding: 32px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ───────── HEADER ───────── -->
+<header>
+  <div class="container">
+    <div class="header-exclusive">
+      <span class="line"></span>
+      Exclusivo para Advogados
+      <span class="line"></span>
+    </div>
+  </div>
+</header>
+
+<!-- ───────── HERO ───────── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Direito de Trânsito · Guia Prático</p>
+      <h1 class="hero-title">
+        Tudo o que você precisa saber para
+        <em>atuar com segurança</em>
+        no Direito de Trânsito
+      </h1>
+      <p class="hero-sub">
+        O guia completo que transforma teoria em prática — para advogados que querem dominar o Direito de Trânsito e construir uma carteira rentável e sólida.
+      </p>
+      <a href="#oferta" class="btn">Quero o Guia Prático por R$ 47</a>
+      <div class="hero-badges">
+        <div class="badge">
+          <div class="icon">✦</div>
+          <span>+10 anos de experiência</span>
+        </div>
+        <div class="badge">
+          <div class="icon">✦</div>
+          <span>+1.500 advogados formados</span>
+        </div>
+        <div class="badge">
+          <div class="icon">✦</div>
+          <span>Acesso imediato</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo"></div>
+      <div class="hero-photo-card">
+        <div class="stat-value">1.500+</div>
+        <div class="stat-label">Advogados formados</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── PAIN ───────── -->
+<section id="pain">
+  <div class="container">
+    <div class="pain-grid">
+      <div>
+        <span class="section-tag">Você se identifica?</span>
+        <h2 class="section-title">Advogado, você sente que o Direito de Trânsito é um universo à parte?</h2>
+        <div class="divider"></div>
+        <p style="color:var(--muted); font-size:.93rem; line-height:1.85;">
+          A maioria dos advogados evita essa área por achar complexa ou pouco lucrativa. A realidade é o oposto — e este guia vai provar isso.
+        </p>
+      </div>
+      <ul class="pain-list">
+        <li><span class="dot"></span>Não sabe por onde começar a atuar na área de trânsito?</li>
+        <li><span class="dot"></span>Tem medo de perder processos por falta de fundamentação técnica?</li>
+        <li><span class="dot"></span>Dificuldade em precificar seus serviços com segurança?</li>
+        <li><span class="dot"></span>Não consegue atrair clientes de forma consistente?</li>
+        <li><span class="dot"></span>Quer uma área rentável mas não sabe como estruturar o escritório?</li>
+        <li><span class="dot"></span>Se sente inseguro no primeiro atendimento ao cliente de trânsito?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── PRODUTO ───────── -->
+<section id="produto">
+  <div class="container">
+    <div class="product-card">
+      <div class="product-mockup">
+        <div class="book-mock">
+          <div class="book-icon">⚖️</div>
+          <div class="book-title">Guia Prático de Direito de Trânsito</div>
+          <div class="book-author">Erica Avallone</div>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="section-tag">O Produto</span>
+        <h2 class="section-title">Guia Prático de Direito de Trânsito</h2>
+        <div class="divider"></div>
+        <p style="color:var(--muted); font-size:.92rem; line-height:1.85; margin-bottom:8px;">
+          Um material direto ao ponto, construído com mais de 10 anos de experiência prática na defesa de motoristas e donos de veículos em todo o Brasil.
+        </p>
+        <ul class="includes-list">
+          <li><span class="check">✓</span>Legislação de trânsito explicada de forma clara e aplicada</li>
+          <li><span class="check">✓</span>Estratégias para defesa em infrações e recursos</li>
+          <li><span class="check">✓</span>Como estruturar casos para obter melhores resultados</li>
+          <li><span class="check">✓</span>Referências de jurisprudência e fundamentação técnica</li>
+          <li><span class="check">✓</span>Linguagem prática — sem rodeios, direto para o escritório</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── BONUS ───────── -->
+<section id="bonus">
+  <div class="container">
+    <div class="bonus-header">
+      <span class="section-tag">Bônus Exclusivos</span>
+      <h2 class="section-title">Além do guia, você ainda leva</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-num">01</div>
+        <h3>Aula Extra ao Vivo</h3>
+        <p>Acesso a uma aula extra ao vivo com a Erica Avallone — tire dúvidas em tempo real e aprofunde o conteúdo do guia com orientação direta da especialista.</p>
+        <span class="bonus-badge">Ao Vivo</span>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-num">02</div>
+        <h3>E-book: Como Atrair Clientes e Precificar no Direito de Trânsito</h3>
+        <p>Estratégias práticas de captação e a metodologia certa para cobrar o que o seu trabalho vale — sem insegurança.</p>
+        <span class="bonus-badge">E-book</span>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-num">03</div>
+        <h3>E-book: Os 3 Primeiros Passos para Começar a Atuar</h3>
+        <p>O roteiro definitivo para quem quer entrar no Direito de Trânsito sem erros de iniciante. Estrutura, posicionamento e primeiros casos.</p>
+        <span class="bonus-badge">E-book</span>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-num">04</div>
+        <h3>E-book: Script do Primeiro Atendimento ao Cliente</h3>
+        <p>Palavra por palavra o que dizer — e o que não dizer — no primeiro contato com o cliente de trânsito. Gere confiança e feche contratos.</p>
+        <span class="bonus-badge">E-book</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── AUTORA ───────── -->
+<section id="autora">
+  <div class="container">
+    <div class="author-grid">
+      <div class="author-photo-wrap">
+        <div class="author-photo-placeholder"></div>
+        <div class="author-name-card">
+          <div class="title-label">Autora</div>
+          <div class="name">Erica Avallone</div>
+        </div>
+      </div>
+      <div class="author-info">
+        <span class="section-tag">Sobre a Autora</span>
+        <h2 class="section-title">Dr.ª Erica Avallone</h2>
+        <div class="divider"></div>
+        <p class="author-bio">
+          Advogada especialista em Direito de Trânsito, com trajetória consolidada na defesa de motoristas e donos de veículos em todo o Brasil. Atua há mais de 10 anos na área, unindo técnica jurídica impecável e visão estratégica de mercado.
+          <br /><br />
+          Com vasta experiência prática, Erica já formou mais de 1.500 profissionais e, em 2026, lançou oficialmente a sua pós-graduação na Faculdade Anhanguera. Compartilha conhecimento de alto valor, capacitando advogados a transformarem o Direito de Trânsito em uma operação altamente rentável e segura.
+        </p>
+        <div class="credentials">
+          <div class="cred-item">
+            <div class="cred-icon">🏛️</div>
+            <div class="cred-text">
+              <strong>Comissão de Trânsito SP</strong>
+              <span>Membro ativo</span>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon">📚</div>
+            <div class="cred-text">
+              <strong>2 obras publicadas</strong>
+              <span>Referências na área</span>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon">🎓</div>
+            <div class="cred-text">
+              <strong>+1.500 formados</strong>
+              <span>Profissionais capacitados</span>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-icon">⚖️</div>
+            <div class="cred-text">
+              <strong>+10 anos</strong>
+              <span>Experiência prática</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── OFERTA ───────── -->
+<section id="oferta">
+  <div class="container">
+    <div class="offer-card">
+      <div class="offer-top-ribbon">⚡ Oferta por Tempo Limitado — Acesso Imediato</div>
+      <div class="offer-body">
+        <span class="section-tag">Investimento</span>
+        <h2 class="section-title" style="margin-bottom:28px;">Tudo isso por apenas</h2>
+        <div class="anchor-block">
+          <div class="anchor-original">
+            <span class="label">Valor original</span>
+            <span class="old-price">R$ 197</span>
+          </div>
+          <span class="anchor-arrow">→</span>
+          <div class="anchor-now">
+            <span class="label">Hoje por apenas</span>
+            <div class="price-main">
+              <span class="price-currency">R$</span>
+              <span class="price-value">47</span>
+            </div>
+          </div>
+        </div>
+        <div><span class="savings-badge">Você economiza R$ 150 agora</span></div>
+      </div>
+      <div class="value-stack">
+        <p class="value-stack-title">O que você leva hoje</p>
+        <div class="value-row">
+          <span class="item-name">Guia Prático de Direito de Trânsito</span>
+          <span class="item-price">R$ 97</span>
+        </div>
+        <div class="value-row">
+          <span class="item-name">Bônus 01 — Aula Extra ao Vivo</span>
+          <span class="item-price">R$ 47</span>
+        </div>
+        <div class="value-row">
+          <span class="item-name">Bônus 02 — E-book: Atrair Clientes e Precificar</span>
+          <span class="item-price">R$ 27</span>
+        </div>
+        <div class="value-row">
+          <span class="item-name">Bônus 03 — E-book: Os 3 Primeiros Passos</span>
+          <span class="item-price">R$ 17</span>
+        </div>
+        <div class="value-row">
+          <span class="item-name">Bônus 04 — E-book: Script do Primeiro Atendimento</span>
+          <span class="item-price">R$ 17</span>
+        </div>
+        <div class="value-total-row">
+          <span class="total-label">Valor total dos materiais</span>
+          <span class="total-price">R$ 205,00</span>
+        </div>
+      </div>
+      <a href="#" class="btn btn-pulse">Quero Meu Guia Agora — R$ 47</a>
+      <p class="btn-sub">Pagamento único · Sem mensalidade · Acesso imediato</p>
+      <p class="security-note">🔒 Compra 100% segura · Garantia incondicional de 7 dias</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FAQ ───────── -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-header">
+      <span class="section-tag">Dúvidas</span>
+      <h2 class="section-title">Perguntas Frequentes</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Para quem é o Guia Prático?<span class="arrow">▼</span></div>
+        <div class="faq-a">É para advogados que querem iniciar ou aprofundar a atuação em Direito de Trânsito — seja para montar uma carteira sólida, para entender a legislação com mais segurança, ou para melhorar seus resultados em defesas e recursos.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Quando recebo o acesso?<span class="arrow">▼</span></div>
+        <div class="faq-a">Imediatamente após a confirmação do pagamento. Você receberá um e-mail com as instruções de acesso em poucos minutos.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Preciso ter experiência prévia em Direito de Trânsito?<span class="arrow">▼</span></div>
+        <div class="faq-a">Não. O guia foi estruturado para atender tanto quem está começando do zero quanto quem já atua e quer aprimorar a técnica e a visão estratégica.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Existe garantia?<span class="arrow">▼</span></div>
+        <div class="faq-a">Sim. Você tem 7 dias de garantia incondicional. Se por qualquer motivo não gostar do material, basta solicitar o reembolso e devolvemos 100% do valor — sem burocracia.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como funciona a Aula Extra ao Vivo?<span class="arrow">▼</span></div>
+        <div class="faq-a">Após a compra, você receberá todas as informações sobre a data e o link da aula ao vivo. É uma oportunidade exclusiva para aprofundar o conteúdo e tirar dúvidas diretamente com a Dra. Erica Avallone.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FOOTER ───────── -->
+<footer>
+  <div class="container">
+    <a href="#" class="footer-logo">Erica <span>Avallone</span></a>
+    <div class="social-links">
+      <a href="https://youtube.com/@ericaavallonetransito" target="_blank">YouTube</a>
+      <a href="https://instagram.com/ericaavalloneoficial" target="_blank">Instagram</a>
+      <a href="https://tiktok.com/@ericaavalloneoficial" target="_blank">TikTok</a>
+    </div>
+    <p class="footer-copy">© 2026 Erica Avallone. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.style.padding = window.scrollY > 60 ? '12px 0' : '16px 0';
+  });
+</script>
+</body>
+</html>
