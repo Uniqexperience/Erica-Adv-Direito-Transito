@@ -141,40 +141,45 @@
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      position: relative;
       overflow: hidden;
       border-bottom: 1px solid rgba(201,168,76,.12);
     }
-    /* coluna esquerda — conteúdo */
+    /* coluna esquerda — conteúdo (sobre o visual) */
     .hero-content {
+      position: relative; z-index: 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 100px 40px 56px clamp(48px, 8vw, 120px);
-      max-width: 640px;
+      width: 52%;
+      min-height: 100vh;
     }
-    /* coluna direita — visual rodovia */
+    /* visual ocupa o hero inteiro em absolute — sem linha divisória */
     .hero-visual {
-      position: relative;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
       overflow: hidden;
       background: #07060a;
     }
-    /* gradient de blend para esquerda */
+    /* gradient forte da esquerda cobrindo o conteúdo */
     .hero-visual::before {
       content: '';
       position: absolute; inset: 0; z-index: 10;
       background: linear-gradient(90deg,
         var(--bg) 0%,
-        rgba(12,11,8,.5) 30%,
-        transparent 70%
+        var(--bg) 35%,
+        rgba(12,11,8,.85) 52%,
+        rgba(12,11,8,.3) 72%,
+        transparent 100%
       );
     }
     /* fade inferior */
     .hero-visual::after {
       content: '';
       position: absolute; bottom: 0; left: 0; right: 0;
-      height: 160px; z-index: 11;
+      height: 140px; z-index: 11;
       background: linear-gradient(to top, var(--bg), transparent);
     }
     .road-scene { position: absolute; inset: 0; }
@@ -603,9 +608,12 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; grid-template-rows: auto; }
-      .hero-content { padding: 100px 24px 48px; max-width: 100%; order: 1; }
-      .hero-visual { display: none; }
+      .hero-content { width: 100%; padding: 100px 24px 56px; }
+      .hero-visual::before {
+        background: linear-gradient(180deg,
+          var(--bg) 0%, rgba(12,11,8,.7) 40%, transparent 70%
+        );
+      }
       .hero-inner { max-width: 100%; }
       .days-grid { grid-template-columns: 1fr; }
       .includes-grid { grid-template-columns: 1fr; }
@@ -636,7 +644,22 @@
   ══════════════════════════════════════════ -->
   <section class="hero">
 
-    <!-- coluna esquerda: conteúdo -->
+    <!-- visual em absolute — preenche o hero todo sem linha divisória -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="road-scene">
+        <div class="road-asphalt"></div>
+        <div class="road-edge"></div>
+        <div class="road-dashes"></div>
+        <div class="road-glow"></div>
+        <div class="bokeh b1"></div>
+        <div class="bokeh b2"></div>
+        <div class="bokeh b3"></div>
+        <div class="bokeh b4"></div>
+        <div class="bokeh b5"></div>
+      </div>
+    </div>
+
+    <!-- conteúdo sobre o visual -->
     <div class="hero-content">
 
       <div class="hero-badge">
@@ -669,21 +692,6 @@
 
       <p class="hero-security">🔒 Compra 100% segura · Hotmart</p>
 
-    </div>
-
-    <!-- coluna direita: visual rodovia noturna -->
-    <div class="hero-visual" aria-hidden="true">
-      <div class="road-scene">
-        <div class="road-asphalt"></div>
-        <div class="road-edge"></div>
-        <div class="road-dashes"></div>
-        <div class="road-glow"></div>
-        <div class="bokeh b1"></div>
-        <div class="bokeh b2"></div>
-        <div class="bokeh b3"></div>
-        <div class="bokeh b4"></div>
-        <div class="bokeh b5"></div>
-      </div>
     </div>
 
   </section>
