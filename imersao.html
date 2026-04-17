@@ -140,116 +140,118 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 120px 0 80px;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,.1) 0%, transparent 70%),
-        var(--bg);
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
       border-bottom: 1px solid rgba(201,168,76,.12);
     }
+    .hero-photo-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-photo-bg img {
+      position: absolute;
+      right: 0; top: 0;
+      height: 100%; width: 52%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .hero-photo-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        var(--bg) 38%,
+        rgba(12,11,8,.82) 58%,
+        rgba(12,11,8,.3) 75%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+    .hero-photo-bg::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 180px;
+      background: linear-gradient(to top, var(--bg), transparent);
+      z-index: 1;
+    }
+    .hero > .container {
+      position: relative; z-index: 2;
+      padding-top: 100px; padding-bottom: 80px;
+    }
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 64px;
-      align-items: center;
+      max-width: 560px;
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(201,168,76,.1);
-      border: 1px solid rgba(201,168,76,.3);
+      background: rgba(201,168,76,.12);
+      border: 1px solid rgba(201,168,76,.35);
       border-radius: 100px;
       padding: 6px 16px;
-      font-size: .78rem; font-weight: 600;
-      letter-spacing: .1em; text-transform: uppercase;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
       color: var(--gold-light);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
-    .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4.5vw, 3rem);
-      font-weight: 700; line-height: 1.15;
-      margin-bottom: 12px;
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
+      font-weight: 700; line-height: 1.25;
+      margin-bottom: 10px;
     }
     .hero-subtitle {
-      font-size: 1.1rem; color: var(--gold-light);
-      font-style: italic; margin-bottom: 28px;
+      font-size: .95rem; color: var(--gold-light);
+      font-style: italic; margin-bottom: 24px;
       font-family: 'Playfair Display', serif;
     }
     .hero-promise {
-      font-size: 1rem; color: var(--muted);
-      line-height: 1.7; margin-bottom: 36px;
-      max-width: 540px;
+      font-size: .92rem; color: var(--muted);
+      line-height: 1.7; margin-bottom: 28px;
     }
     .hero-promise strong { color: var(--text); }
 
-    .check-list { list-style: none; margin-bottom: 40px; }
+    .check-list { list-style: none; margin-bottom: 32px; }
     .check-list li {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: .95rem; color: var(--text);
-      margin-bottom: 12px;
-      line-height: 1.5;
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .88rem; color: var(--text);
+      margin-bottom: 10px; line-height: 1.45;
     }
     .check-list li::before {
-      content: '';
+      content: '✓';
       flex-shrink: 0;
-      width: 20px; height: 20px;
-      border-radius: 50%;
+      width: 18px; height: 18px; border-radius: 50%;
       background: linear-gradient(135deg, var(--gold-dark), var(--gold));
       display: flex; align-items: center; justify-content: center;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1200' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
-      background-size: 12px; background-repeat: no-repeat; background-position: center;
-      margin-top: 2px;
+      font-size: .6rem; font-weight: 900; color: #1a1200;
+      margin-top: 1px;
     }
 
-    /* card de preço no hero */
-    .hero-card {
-      background: var(--bg-3);
-      border: 1px solid rgba(201,168,76,.3);
-      border-radius: 16px;
-      padding: 40px 32px;
-      text-align: center;
-      position: sticky; top: 90px;
-      box-shadow: 0 24px 80px rgba(0,0,0,.5);
+    /* preço inline no hero */
+    .hero-price-block {
+      margin-bottom: 28px;
     }
-    .hero-card .event-format {
-      font-size: .75rem; font-weight: 600; letter-spacing: .15em;
-      text-transform: uppercase; color: var(--muted);
-      margin-bottom: 20px;
+    .hero-price-block .from {
+      font-size: .82rem; color: var(--muted);
+      text-decoration: line-through; margin-bottom: 2px;
     }
-    .hero-card .price-from {
-      font-size: .85rem; color: var(--muted);
-      text-decoration: line-through; margin-bottom: 4px;
+    .hero-price-block .label {
+      font-size: .82rem; color: var(--muted); margin-bottom: 2px;
     }
-    .hero-card .price-label { font-size: .85rem; color: var(--muted); margin-bottom: 4px; }
-    .hero-card .price {
+    .hero-price-block .amount {
       font-family: 'Playfair Display', serif;
       font-size: 3rem; font-weight: 700;
       color: var(--gold); line-height: 1;
-      margin-bottom: 6px;
     }
-    .hero-card .price sup { font-size: 1.4rem; vertical-align: top; margin-top: 8px; }
-    .hero-card .price-note { font-size: .8rem; color: var(--muted); margin-bottom: 28px; }
-    .hero-card .btn { display: block; width: 100%; text-align: center; }
-    .hero-card .security {
-      margin-top: 16px; font-size: .78rem; color: var(--muted);
-      display: flex; align-items: center; justify-content: center; gap: 6px;
-    }
-    .hero-card .includes {
-      margin-top: 24px; padding-top: 24px;
-      border-top: 1px solid rgba(201,168,76,.12);
-      text-align: left;
-    }
-    .hero-card .includes p {
-      font-size: .8rem; font-weight: 600; color: var(--muted);
-      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px;
-    }
-    .hero-card .includes li {
-      display: flex; align-items: center; gap: 8px;
-      font-size: .85rem; color: var(--text);
-      margin-bottom: 8px; list-style: none;
-    }
-    .hero-card .includes li::before {
-      content: '✦'; color: var(--gold); font-size: .6rem; flex-shrink: 0;
+    .hero-price-block .amount sup { font-size: 1.3rem; vertical-align: top; margin-top: 8px; }
+    .hero-security {
+      margin-top: 12px; font-size: .78rem; color: var(--muted);
     }
 
     /* ── STRIP DE CONFIANÇA ── */
@@ -535,8 +537,11 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-card { position: static; }
+      .hero-photo-bg img { width: 100%; opacity: .25; }
+      .hero-photo-bg::before {
+        background: linear-gradient(180deg, rgba(12,11,8,.6) 0%, var(--bg) 80%);
+      }
+      .hero-inner { max-width: 100%; }
       .days-grid { grid-template-columns: 1fr; }
       .includes-grid { grid-template-columns: 1fr; }
       .bio-inner { grid-template-columns: 1fr; }
@@ -546,6 +551,7 @@
     @media (max-width: 520px) {
       .trust-strip .container { gap: 20px; }
       .price-display .amount { font-size: 3rem; }
+      .hero-price-block .amount { font-size: 2.4rem; }
     }
   </style>
 </head>
@@ -562,62 +568,50 @@
        HERO
   ══════════════════════════════════════════ -->
   <section class="hero">
+
+    <!-- foto de fundo direita -->
+    <div class="hero-photo-bg">
+      <img src="erica-avallone.png" alt="Dra. Erica Avallone" />
+    </div>
+
     <div class="container">
       <div class="hero-inner">
 
-        <!-- ESQUERDA -->
-        <div class="hero-left">
-          <div class="hero-badge">
-            <span></span> 4 lives ao vivo · vagas limitadas
-          </div>
-
-          <h1>
-            Imersão<br>
-            <span class="gold">Direito de Trânsito</span><br>
-            na Prática
-          </h1>
-
-          <p class="hero-subtitle">
-            4 dias para dominar a especialidade mais subestimada da advocacia
-          </p>
-
-          <p class="hero-promise">
-            Em 4 dias, você vai entender como o Direito de Trânsito funciona na prática, como captar os primeiros clientes da especialidade e o que fazer para
-            <strong>construir um escritório lucrativo nessa área — mesmo começando do zero.</strong>
-          </p>
-
-          <ul class="check-list">
-            <li>Como o mercado de Trânsito funciona e por que é tão rentável</li>
-            <li>Os casos mais comuns e como conduzir cada um do início ao fim</li>
-            <li>Como captar clientes e montar a estrutura mínima do seu escritório</li>
-            <li>O plano concreto para dar seu próximo passo na especialidade</li>
-          </ul>
+        <div class="hero-badge">
+          <span class="dot"></span> 4 lives ao vivo · vagas limitadas
         </div>
 
-        <!-- DIREITA – CARD DE PREÇO -->
-        <div class="hero-card">
-          <p class="event-format">✦ Evento ao vivo · 4 dias ✦</p>
-          <p class="price-from">De R$ 187,00</p>
-          <p class="price-label">Garanta seu ingresso por apenas</p>
-          <div class="price"><sup>R$</sup>37<span style="font-size:1.6rem">,00</span></div>
-          <p class="price-note">Pagamento único · acesso imediato</p>
+        <h1>
+          Imersão <span class="gold">Direito de Trânsito</span> na Prática
+        </h1>
 
-          <a href="SEU_LINK_HOTMART_AQUI" class="btn" target="_blank" rel="noopener noreferrer">
-            Quero meu ingresso agora
-          </a>
+        <p class="hero-subtitle">
+          4 dias para dominar a especialidade mais subestimada da advocacia
+        </p>
 
-          <p class="security">🔒 Compra 100% segura · Hotmart</p>
+        <p class="hero-promise">
+          Em 4 dias, você vai entender como o Direito de Trânsito funciona na prática, como captar os primeiros clientes da especialidade e o que fazer para
+          <strong>construir um escritório lucrativo nessa área — mesmo começando do zero.</strong>
+        </p>
 
-          <div class="includes">
-            <p>Incluso no ingresso</p>
-            <ul>
-              <li>4 aulas ao vivo com Erica Avallone</li>
-              <li>Materiais complementares</li>
-              <li>Grupo exclusivo de alunos</li>
-              <li>Momentos de tira-dúvidas ao vivo</li>
-            </ul>
-          </div>
+        <ul class="check-list">
+          <li>Como o mercado de Trânsito funciona e por que é tão rentável</li>
+          <li>Os casos mais comuns e como conduzir cada um do início ao fim</li>
+          <li>Como captar clientes e montar a estrutura mínima do seu escritório</li>
+          <li>O plano concreto para dar seu próximo passo na especialidade</li>
+        </ul>
+
+        <div class="hero-price-block">
+          <p class="from">De R$ 187,00</p>
+          <p class="label">Garanta seu ingresso por apenas</p>
+          <div class="amount"><sup>R$</sup>37<span style="font-size:1.4rem">,00</span></div>
         </div>
+
+        <a href="SEU_LINK_HOTMART_AQUI" class="btn" target="_blank" rel="noopener noreferrer">
+          Pagar meu ingresso →
+        </a>
+
+        <p class="hero-security">🔒 Compra 100% segura · Hotmart</p>
 
       </div>
     </div>
