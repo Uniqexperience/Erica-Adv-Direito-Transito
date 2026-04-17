@@ -592,10 +592,13 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       .hero-content { width: 100%; padding: 100px 24px 56px; }
+      /* no mobile cobre o background quase todo para o texto sobressair */
       .hero-visual::before {
-        background: linear-gradient(180deg,
-          var(--bg) 0%, rgba(12,11,8,.7) 40%, transparent 70%
-        );
+        background: rgba(10, 9, 7, .88);
+      }
+      .hero-visual .road-scene {
+        background-position: center right;
+        opacity: .35;
       }
       .hero-inner { max-width: 100%; }
       .days-grid { grid-template-columns: 1fr; }
