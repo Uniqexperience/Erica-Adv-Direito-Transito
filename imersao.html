@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imersão Direito de Trânsito na Prática — Erica Avallone</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '309780160967181');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=309780160967181&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --gold-dark: #a07832;
+      --bg: #0c0b08;
+      --bg-2: #131109;
+      --bg-3: #1a1710;
+      --bg-4: #201d12;
+      --text: #f0ead8;
+      --muted: #9e9580;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .container-sm { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+
+    .gold { color: var(--gold); }
+
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 4px 24px rgba(245,200,66,.4), 0 1px 0 rgba(255,255,255,.2) inset; }
+      50%       { box-shadow: 0 6px 40px rgba(245,200,66,.7), 0 1px 0 rgba(255,255,255,.2) inset; }
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(100deg,#b8860b 0%,#f5c842 35%,#ffe066 50%,#f5c842 65%,#b8860b 100%);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+      color: #1a1200;
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 20px 48px;
+      border-radius: 5px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 24px rgba(245,200,66,.45), 0 1px 0 rgba(255,255,255,.25) inset;
+      text-shadow: 0 1px 0 rgba(255,255,255,.3);
+    }
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 40px rgba(245,200,66,.65), 0 1px 0 rgba(255,255,255,.25) inset;
+    }
+    .btn-lg { font-size: 1.15rem; padding: 22px 56px; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-dark);
+      padding: 5px 14px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    h2.section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 20px 0 32px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 0;
+      background: rgba(12,11,8,.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201,168,76,.15);
+    }
+    header .container {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; letter-spacing: .04em;
+      color: var(--text); text-decoration: none;
+    }
+    .logo span { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 120px 0 80px;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,.1) 0%, transparent 70%),
+        var(--bg);
+      border-bottom: 1px solid rgba(201,168,76,.12);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201,168,76,.1);
+      border: 1px solid rgba(201,168,76,.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+    }
+    .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 700; line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .hero-subtitle {
+      font-size: 1.1rem; color: var(--gold-light);
+      font-style: italic; margin-bottom: 28px;
+      font-family: 'Playfair Display', serif;
+    }
+    .hero-promise {
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.7; margin-bottom: 36px;
+      max-width: 540px;
+    }
+    .hero-promise strong { color: var(--text); }
+
+    .check-list { list-style: none; margin-bottom: 40px; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: .95rem; color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .check-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1200' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-size: 12px; background-repeat: no-repeat; background-position: center;
+      margin-top: 2px;
+    }
+
+    /* card de preço no hero */
+    .hero-card {
+      background: var(--bg-3);
+      border: 1px solid rgba(201,168,76,.3);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      position: sticky; top: 90px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.5);
+    }
+    .hero-card .event-format {
+      font-size: .75rem; font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .hero-card .price-from {
+      font-size: .85rem; color: var(--muted);
+      text-decoration: line-through; margin-bottom: 4px;
+    }
+    .hero-card .price-label { font-size: .85rem; color: var(--muted); margin-bottom: 4px; }
+    .hero-card .price {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem; font-weight: 700;
+      color: var(--gold); line-height: 1;
+      margin-bottom: 6px;
+    }
+    .hero-card .price sup { font-size: 1.4rem; vertical-align: top; margin-top: 8px; }
+    .hero-card .price-note { font-size: .8rem; color: var(--muted); margin-bottom: 28px; }
+    .hero-card .btn { display: block; width: 100%; text-align: center; }
+    .hero-card .security {
+      margin-top: 16px; font-size: .78rem; color: var(--muted);
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .hero-card .includes {
+      margin-top: 24px; padding-top: 24px;
+      border-top: 1px solid rgba(201,168,76,.12);
+      text-align: left;
+    }
+    .hero-card .includes p {
+      font-size: .8rem; font-weight: 600; color: var(--muted);
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .hero-card .includes li {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .85rem; color: var(--text);
+      margin-bottom: 8px; list-style: none;
+    }
+    .hero-card .includes li::before {
+      content: '✦'; color: var(--gold); font-size: .6rem; flex-shrink: 0;
+    }
+
+    /* ── STRIP DE CONFIANÇA ── */
+    .trust-strip {
+      background: var(--bg-2);
+      border-top: 1px solid rgba(201,168,76,.1);
+      border-bottom: 1px solid rgba(201,168,76,.1);
+      padding: 20px 0;
+    }
+    .trust-strip .container {
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .82rem; color: var(--muted);
+    }
+    .trust-item span { color: var(--gold); font-size: 1rem; }
+
+    /* ── SEÇÃO DIAS ── */
+    .section { padding: 90px 0; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .day-card {
+      background: var(--bg-3);
+      border: 1px solid rgba(201,168,76,.15);
+      border-radius: 12px;
+      padding: 32px 28px;
+      transition: border-color .3s, transform .3s;
+    }
+    .day-card:hover {
+      border-color: rgba(201,168,76,.4);
+      transform: translateY(-4px);
+    }
+    .day-num {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .7rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .day-num::before {
+      content: '';
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 800; color: #1a1200;
+      background-image: attr(data-n);
+    }
+    .day-number-badge {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: .8rem; font-weight: 800; color: #1a1200;
+      flex-shrink: 0;
+    }
+    .day-label {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
+    }
+    .day-tag {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--gold); opacity: .8;
+    }
+    .day-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 6px; line-height: 1.3;
+    }
+    .day-card .day-theme {
+      font-size: .82rem; color: var(--gold-light); font-style: italic;
+      margin-bottom: 16px;
+    }
+    .day-card ul { list-style: none; margin-bottom: 20px; }
+    .day-card ul li {
+      font-size: .88rem; color: var(--muted);
+      padding: 5px 0 5px 18px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      line-height: 1.4;
+    }
+    .day-card ul li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--gold); font-size: .7rem;
+    }
+    .day-entrega {
+      background: rgba(201,168,76,.08);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: .82rem; color: var(--text);
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .day-entrega .icon { color: var(--gold); flex-shrink: 0; font-size: .9rem; }
+
+    /* ── INCLUSO ── */
+    .includes-section { background: var(--bg-2); }
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .include-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: var(--bg-3);
+      border: 1px solid rgba(201,168,76,.12);
+      border-radius: 10px;
+      padding: 24px 20px;
+    }
+    .include-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .include-item h4 {
+      font-size: .95rem; font-weight: 700; margin-bottom: 4px;
+    }
+    .include-item p { font-size: .83rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── CAIXA DE PREÇO ── */
+    .price-section { background: var(--bg); }
+    .price-box {
+      max-width: 600px; margin: 0 auto;
+      background: var(--bg-3);
+      border: 1px solid rgba(201,168,76,.35);
+      border-radius: 20px;
+      padding: 52px 48px;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(201,168,76,.08);
+    }
+    .price-box .tag { margin-bottom: 16px; }
+    .price-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 700;
+      margin-bottom: 8px; line-height: 1.3;
+    }
+    .price-box .subtitle {
+      font-size: .9rem; color: var(--muted); margin-bottom: 36px;
+    }
+    .price-display {
+      margin-bottom: 36px;
+    }
+    .price-display .from {
+      font-size: .85rem; color: var(--muted);
+      text-decoration: line-through; margin-bottom: 4px;
+    }
+    .price-display .label { font-size: .85rem; color: var(--muted); margin-bottom: 2px; }
+    .price-display .amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem; font-weight: 700;
+      color: var(--gold); line-height: 1;
+    }
+    .price-display .amount sup { font-size: 1.8rem; vertical-align: top; margin-top: 10px; }
+    .price-display .note {
+      font-size: .8rem; color: var(--muted); margin-top: 6px;
+    }
+    .price-box .btn { display: block; width: 100%; text-align: center; margin-bottom: 16px; }
+    .price-box .guarantee {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: .82rem; color: var(--muted);
+    }
+    .price-box .guarantee span { color: var(--gold); }
+    .price-checklist {
+      margin-top: 32px; padding-top: 32px;
+      border-top: 1px solid rgba(201,168,76,.12);
+      text-align: left;
+    }
+    .price-checklist li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .88rem; color: var(--text);
+      margin-bottom: 10px; list-style: none;
+    }
+    .price-checklist li::before {
+      content: '✓';
+      width: 20px; height: 20px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; color: #1a1200; font-weight: 800; flex-shrink: 0;
+    }
+
+    /* ── BIO ── */
+    .bio-section { background: var(--bg-2); }
+    .bio-inner {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 64px; align-items: center;
+    }
+    .bio-photo {
+      position: relative;
+    }
+    .bio-photo img {
+      width: 100%; border-radius: 12px;
+      filter: grayscale(20%);
+      border: 1px solid rgba(201,168,76,.2);
+    }
+    .bio-photo .bio-badge {
+      position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
+      background: var(--bg-3);
+      border: 1px solid rgba(201,168,76,.3);
+      border-radius: 8px; padding: 10px 20px;
+      white-space: nowrap; text-align: center;
+    }
+    .bio-badge .name { font-size: .9rem; font-weight: 700; }
+    .bio-badge .title { font-size: .72rem; color: var(--gold); letter-spacing: .08em; }
+    .bio-content { padding-bottom: 20px; }
+    .bio-content h2 { margin-bottom: 20px; }
+    .bio-content p {
+      font-size: .95rem; color: var(--muted);
+      line-height: 1.8; margin-bottom: 16px;
+    }
+    .bio-content p strong { color: var(--text); }
+    .bio-stats {
+      display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap;
+    }
+    .bio-stat .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: var(--gold);
+    }
+    .bio-stat .label { font-size: .78rem; color: var(--muted); }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--bg); }
+    .faq-list { max-width: 680px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid rgba(201,168,76,.12);
+    }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0; cursor: pointer;
+      font-size: .95rem; font-weight: 600; color: var(--text);
+      gap: 16px;
+      user-select: none;
+    }
+    .faq-q .icon {
+      width: 24px; height: 24px; border-radius: 50%;
+      border: 1px solid rgba(201,168,76,.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: .9rem; flex-shrink: 0;
+      transition: transform .3s;
+    }
+    .faq-item.open .faq-q .icon { transform: rotate(45deg); }
+    .faq-a {
+      display: none;
+      font-size: .9rem; color: var(--muted);
+      line-height: 1.7; padding-bottom: 20px;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,.08) 0%, transparent 70%),
+                  var(--bg-2);
+      border-top: 1px solid rgba(201,168,76,.12);
+      border-bottom: 1px solid rgba(201,168,76,.12);
+      padding: 90px 0;
+      text-align: center;
+    }
+    .final-cta h2 { margin-bottom: 16px; }
+    .final-cta p { font-size: 1rem; color: var(--muted); margin-bottom: 40px; max-width: 540px; margin-left: auto; margin-right: auto; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid rgba(201,168,76,.1);
+      text-align: center;
+    }
+    footer .logo { margin-bottom: 12px; display: block; }
+    .footer-links {
+      display: flex; gap: 20px; justify-content: center;
+      margin-bottom: 12px; flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: .8rem; color: var(--muted); text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: .78rem; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { position: static; }
+      .days-grid { grid-template-columns: 1fr; }
+      .includes-grid { grid-template-columns: 1fr; }
+      .bio-inner { grid-template-columns: 1fr; }
+      .bio-photo { max-width: 280px; margin: 0 auto 48px; }
+      .price-box { padding: 36px 24px; }
+    }
+    @media (max-width: 520px) {
+      .trust-strip .container { gap: 20px; }
+      .price-display .amount { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="container">
+      <a class="logo" href="#">Erica <span>Avallone</span></a>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- ESQUERDA -->
+        <div class="hero-left">
+          <div class="hero-badge">
+            <span></span> 4 lives ao vivo · vagas limitadas
+          </div>
+
+          <h1>
+            Imersão<br>
+            <span class="gold">Direito de Trânsito</span><br>
+            na Prática
+          </h1>
+
+          <p class="hero-subtitle">
+            4 dias para dominar a especialidade mais subestimada da advocacia
+          </p>
+
+          <p class="hero-promise">
+            Em 4 dias, você vai entender como o Direito de Trânsito funciona na prática, como captar os primeiros clientes da especialidade e o que fazer para
+            <strong>construir um escritório lucrativo nessa área — mesmo começando do zero.</strong>
+          </p>
+
+          <ul class="check-list">
+            <li>Como o mercado de Trânsito funciona e por que é tão rentável</li>
+            <li>Os casos mais comuns e como conduzir cada um do início ao fim</li>
+            <li>Como captar clientes e montar a estrutura mínima do seu escritório</li>
+            <li>O plano concreto para dar seu próximo passo na especialidade</li>
+          </ul>
+        </div>
+
+        <!-- DIREITA – CARD DE PREÇO -->
+        <div class="hero-card">
+          <p class="event-format">✦ Evento ao vivo · 4 dias ✦</p>
+          <p class="price-from">De R$ 187,00</p>
+          <p class="price-label">Garanta seu ingresso por apenas</p>
+          <div class="price"><sup>R$</sup>37<span style="font-size:1.6rem">,00</span></div>
+          <p class="price-note">Pagamento único · acesso imediato</p>
+
+          <a href="SEU_LINK_HOTMART_AQUI" class="btn" target="_blank" rel="noopener noreferrer">
+            Quero meu ingresso agora
+          </a>
+
+          <p class="security">🔒 Compra 100% segura · Hotmart</p>
+
+          <div class="includes">
+            <p>Incluso no ingresso</p>
+            <ul>
+              <li>4 aulas ao vivo com Erica Avallone</li>
+              <li>Materiais complementares</li>
+              <li>Grupo exclusivo de alunos</li>
+              <li>Momentos de tira-dúvidas ao vivo</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST STRIP ── -->
+  <div class="trust-strip">
+    <div class="container">
+      <div class="trust-item"><span>🎓</span> +1.500 advogados formados</div>
+      <div class="trust-item"><span>⚖️</span> +10 anos de especialidade</div>
+      <div class="trust-item"><span>🏫</span> Pós-graduação Anhanguera</div>
+      <div class="trust-item"><span>🔒</span> Garantia de 7 dias</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       4 DIAS
+  ══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-tag">Programação completa</div>
+        <h2 class="section-title">O que você vai aprender<br>em cada dia da imersão</h2>
+        <div class="divider" style="margin:20px auto 0"></div>
+      </div>
+
+      <div class="days-grid">
+
+        <!-- DIA 1 -->
+        <div class="day-card">
+          <div class="day-label">
+            <div class="day-number-badge">1</div>
+            <div>
+              <div class="day-tag">Dia 1 · Mercado e Posicionamento</div>
+            </div>
+          </div>
+          <h3>A Oportunidade que a Maioria dos Advogados Ignora</h3>
+          <p class="day-theme">Quebre a crença de que "trânsito é área pequena"</p>
+          <ul>
+            <li>O tamanho real do mercado no Brasil (frota, infrações, acidentes)</li>
+            <li>Por que advogados generalistas deixam dinheiro na mesa</li>
+            <li>Os 3 tipos de cliente do trânsito e como cada um chega até você</li>
+            <li>Especialista vs. advogado "faz tudo" — qual é mais lucrativo</li>
+            <li>A trajetória da Erica: como construir autoridade de verdade</li>
+          </ul>
+          <div class="day-entrega">
+            <span class="icon">📄</span>
+            <span><strong>Entrega prática:</strong> Mapa de oportunidades locais — como identificar o potencial da sua cidade</span>
+          </div>
+        </div>
+
+        <!-- DIA 2 -->
+        <div class="day-card">
+          <div class="day-label">
+            <div class="day-number-badge">2</div>
+            <div>
+              <div class="day-tag">Dia 2 · Técnica e Método</div>
+            </div>
+          </div>
+          <h3>Como Funciona um Caso de Trânsito na Prática</h3>
+          <p class="day-theme">O coração técnico da imersão</p>
+          <ul>
+            <li>Os casos mais comuns: Lei Seca, CNH cassada, acidentes com vítima</li>
+            <li>Fluxo completo de um caso: da consulta ao encerramento</li>
+            <li>Como fazer a triagem e identificar o potencial do caso</li>
+            <li>Erros técnicos que advogados iniciantes cometem — e como evitar</li>
+            <li>Jurisprudência atual: o que os tribunais estão decidindo</li>
+          </ul>
+          <div class="day-entrega">
+            <span class="icon">📄</span>
+            <span><strong>Entrega prática:</strong> Checklist de triagem de casos — o que perguntar no primeiro atendimento</span>
+          </div>
+        </div>
+
+        <!-- DIA 3 -->
+        <div class="day-card">
+          <div class="day-label">
+            <div class="day-number-badge">3</div>
+            <div>
+              <div class="day-tag">Dia 3 · Negócio e Captação</div>
+            </div>
+          </div>
+          <h3>Como Estruturar um Escritório de Trânsito Lucrativo</h3>
+          <p class="day-theme">O lado de mentoria que diferencia a Erica</p>
+          <ul>
+            <li>Canais de captação de clientes online e offline</li>
+            <li>Como precificar: tabela de honorários por tipo de caso</li>
+            <li>A estrutura mínima para começar a operar na especialidade</li>
+            <li>Parcerias estratégicas: despachantes, seguradoras, concessionárias</li>
+            <li>Como construir autoridade local antes de ter muitos casos</li>
+          </ul>
+          <div class="day-entrega">
+            <span class="icon">📊</span>
+            <span><strong>Entrega prática:</strong> Planilha de precificação de honorários por tipo de caso</span>
+          </div>
+        </div>
+
+        <!-- DIA 4 -->
+        <div class="day-card">
+          <div class="day-label">
+            <div class="day-number-badge">4</div>
+            <div>
+              <div class="day-tag">Dia 4 · Consolidação + Próximo Passo</div>
+            </div>
+          </div>
+          <h3>Seu Próximo Passo na Especialidade</h3>
+          <p class="day-theme">O dia da virada — o caminho completo à frente</p>
+          <ul>
+            <li>Revisão das maiores dúvidas dos 3 dias anteriores</li>
+            <li>Cases reais de alunos e clientes da Erica (prova social)</li>
+            <li>O que separa quem tenta de quem constrói uma carreira na área</li>
+            <li>Os próximos passos concretos para ir mais fundo</li>
+            <li>Apresentação da Formação e Pós-Graduação como caminho completo</li>
+          </ul>
+          <div class="day-entrega">
+            <span class="icon">🗺️</span>
+            <span><strong>Entrega prática:</strong> Plano de ação de 30 dias para começar na especialidade</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       O QUE ESTÁ INCLUSO
+  ══════════════════════════════════════════ -->
+  <section class="section includes-section">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-tag">Tudo que você recebe</div>
+        <h2 class="section-title">Além das 4 aulas ao vivo,<br>você leva tudo isso</h2>
+        <div class="divider" style="margin:20px auto 0"></div>
+      </div>
+
+      <div class="includes-grid">
+        <div class="include-item">
+          <div class="include-icon">🎥</div>
+          <div>
+            <h4>4 Aulas ao Vivo</h4>
+            <p>Acesso completo às 4 lives da imersão com a Dra. Erica Avallone, com interação em tempo real.</p>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon">📚</div>
+          <div>
+            <h4>Materiais Complementares</h4>
+            <p>Checklist de triagem, mapa de oportunidades e planilha de precificação para usar na prática.</p>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon">💬</div>
+          <div>
+            <h4>Grupo Exclusivo de Alunos</h4>
+            <p>Acesso ao grupo de WhatsApp com todos os participantes da imersão para networking e suporte.</p>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon">🎯</div>
+          <div>
+            <h4>Momentos de Tira-Dúvidas ao Vivo</h4>
+            <p>Espaços dedicados para tirar suas dúvidas diretamente com a Erica durante as aulas.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CAIXA DE PREÇO
+  ══════════════════════════════════════════ -->
+  <section class="section price-section">
+    <div class="container">
+
+      <div class="price-box">
+        <div class="section-tag tag">Garanta sua vaga agora</div>
+        <h2>Ingresso para a Imersão<br><span class="gold">Direito de Trânsito na Prática</span></h2>
+        <p class="subtitle">4 dias ao vivo com quem mais entende da especialidade no Brasil</p>
+
+        <div class="price-display">
+          <p class="from">De R$ 187,00</p>
+          <p class="label">Apenas</p>
+          <div class="amount"><sup>R$</sup>37<span style="font-size:1.6rem">,00</span></div>
+          <p class="note">Pagamento único · acesso imediato após confirmação</p>
+        </div>
+
+        <a href="SEU_LINK_HOTMART_AQUI" class="btn btn-lg" target="_blank" rel="noopener noreferrer">
+          Quero meu ingresso — R$ 37
+        </a>
+
+        <p class="guarantee">
+          <span>🔒</span> Compra 100% segura · Garantia de 7 dias sem perguntas
+        </p>
+
+        <ul class="price-checklist">
+          <li>4 aulas ao vivo com Erica Avallone</li>
+          <li>Materiais complementares exclusivos</li>
+          <li>Grupo de alunos no WhatsApp</li>
+          <li>Tira-dúvidas ao vivo durante as aulas</li>
+          <li>Plano de ação de 30 dias para começar</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       BIO
+  ══════════════════════════════════════════ -->
+  <section class="section bio-section">
+    <div class="container">
+      <div class="bio-inner">
+
+        <div class="bio-photo">
+          <img src="erica-avallone.png" alt="Dra. Erica Avallone" />
+          <div class="bio-badge">
+            <div class="name">Dra. Erica Avallone</div>
+            <div class="title">Especialista em Direito de Trânsito</div>
+          </div>
+        </div>
+
+        <div class="bio-content">
+          <div class="section-tag">Quem vai te ensinar</div>
+          <h2 class="section-title">Dra. <span class="gold">Erica Avallone</span></h2>
+          <div class="divider"></div>
+
+          <p>
+            Advogada especialista em Direito de Trânsito, com trajetória consolidada na defesa de motoristas e proprietários de veículos em todo o Brasil.
+            <strong>Atua há mais de 10 anos na área</strong>, unindo técnica jurídica impecável e visão estratégica de mercado.
+          </p>
+          <p>
+            Com vasta experiência prática, Erica já <strong>formou mais de 1.500 profissionais</strong> e, em 2026, lançou oficialmente sua pós-graduação em parceria com a Faculdade Anhanguera — referência nacional na especialidade.
+          </p>
+          <p>
+            Compartilha conhecimento de alto valor, capacitando advogados a transformarem o Direito de Trânsito em uma operação altamente rentável — com método, técnica e posicionamento de mercado.
+          </p>
+
+          <div class="bio-stats">
+            <div class="bio-stat">
+              <div class="num">+10</div>
+              <div class="label">anos de especialidade</div>
+            </div>
+            <div class="bio-stat">
+              <div class="num">+1.500</div>
+              <div class="label">profissionais formados</div>
+            </div>
+            <div class="bio-stat">
+              <div class="num">Pós</div>
+              <div class="label">Graduação Anhanguera</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FAQ
+  ══════════════════════════════════════════ -->
+  <section class="section faq-section">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-tag">Dúvidas frequentes</div>
+        <h2 class="section-title">Perguntas frequentes</h2>
+        <div class="divider" style="margin:20px auto 0"></div>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Preciso ter experiência em Direito de Trânsito para participar?
+            <span class="icon">+</span>
+          </div>
+          <div class="faq-a">
+            Não. A imersão foi desenhada tanto para quem está começando do zero quanto para advogados que já atuam na área e querem se aprofundar. O conteúdo vai do mercado à técnica e ao negócio.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            As aulas serão ao vivo ou gravadas?
+            <span class="icon">+</span>
+          </div>
+          <div class="faq-a">
+            As 4 aulas são transmitidas ao vivo, com espaço para interação e tira-dúvidas em tempo real com a Dra. Erica Avallone. As informações sobre datas e link de acesso serão enviadas pelo grupo de WhatsApp após a compra.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Como vou receber os materiais complementares?
+            <span class="icon">+</span>
+          </div>
+          <div class="faq-a">
+            Os materiais serão disponibilizados ao longo dos 4 dias de imersão — checklist de triagem, mapa de oportunidades e planilha de precificação. Tudo será compartilhado no grupo de alunos.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            E se eu não puder assistir alguma aula ao vivo?
+            <span class="icon">+</span>
+          </div>
+          <div class="faq-a">
+            Fique tranquilo. Todas as informações sobre replay e acesso ao conteúdo serão comunicadas pelo grupo de WhatsApp exclusivo dos alunos.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Tem garantia?
+            <span class="icon">+</span>
+          </div>
+          <div class="faq-a">
+            Sim. Você tem 7 dias de garantia incondicional. Se por qualquer motivo não ficar satisfeito, basta solicitar o reembolso dentro desse prazo e devolvemos 100% do valor — sem burocracia.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Esse ingresso me dá acesso à Pós-Graduação ou à Formação completa?
+            <span class="icon">+</span>
+          </div>
+          <div class="faq-a">
+            Não. O ingresso é para a imersão de 4 dias. Ao final do evento, você vai conhecer o caminho completo da especialidade — mas a decisão de seguir adiante é totalmente sua.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FINAL CTA
+  ══════════════════════════════════════════ -->
+  <section class="final-cta">
+    <div class="container-sm">
+      <div class="section-tag">Última chamada</div>
+      <h2 class="section-title">Pronto para dominar a especialidade<br>mais lucrativa da advocacia?</h2>
+      <p>Vagas limitadas. Garanta seu ingresso agora e entre para o grupo exclusivo de alunos.</p>
+      <a href="SEU_LINK_HOTMART_AQUI" class="btn btn-lg" target="_blank" rel="noopener noreferrer">
+        Quero meu ingresso — R$ 37
+      </a>
+      <p style="margin-top:16px; font-size:.82rem; color:var(--muted)">
+        🔒 Compra segura · Garantia incondicional de 7 dias
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <a class="logo" href="#">Erica <span>Avallone</span></a>
+      <div class="footer-links">
+        <a href="https://youtube.com/@ericaavallonetransito" target="_blank">YouTube</a>
+        <a href="https://instagram.com/ericaavalloneoficial" target="_blank">Instagram</a>
+        <a href="https://tiktok.com/@ericaavalloneoficial" target="_blank">TikTok</a>
+      </div>
+      <p class="footer-copy">© 2026 Erica Avallone. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ── FAQ JS ── -->
+  <script>
+  function toggleFaq(el) {
+    var item = el.parentElement;
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  }
+  </script>
+
+  <!-- UTM Tracking - Comunidade Nova Ordem do Digital -->
+  <script>
+  (function () {
+      var parametros = ["utm_source"];
+      var url = window.location.href;
+      var params = (url.split('?')[1] || '').split('&');
+
+      for (var i = 0; i < params.length; i++) {
+          var key = params[i].split('=')[0];
+          if (parametros.indexOf(key) === -1) {
+              parametros.push(key);
+          }
+      }
+
+      var urlParamsCapt = (window.location.search || '').substring(1).split('&');
+      var urlParamsCaptReferrer = (document.referrer.split('?')[1] || '').split('&');
+      var utms = {};
+
+      for (var i = 0; i < parametros.length; i++) {
+          var el = parametros[i];
+          var value = getValueFromParams(urlParamsCapt, el) || getValueFromParams(urlParamsCaptReferrer, el) || '';
+          if (el === "utm_source") {
+              value = value || (document.referrer ? (getValueFromParams(urlParamsCaptReferrer, el) || getHostname(document.referrer)) : "direto");
+          }
+          utms[el] = value;
+      }
+
+      var scks = [];
+      for (var key in utms) {
+          if (utms[key] !== "") {
+              scks.push(utms[key]);
+          }
+      }
+
+      var currentSckValues = [];
+      var currentSckParam = getValueFromParams(urlParamsCapt, 'sck');
+      if (currentSckParam) {
+          currentSckValues = currentSckParam.split('|');
+      }
+      scks = scks.filter(function(value) {
+          return currentSckValues.indexOf(value) === -1;
+      });
+
+      var links = document.querySelectorAll('a');
+      for (var i = 0; i < links.length; i++) {
+          var el = links[i];
+          if (el.href) {
+              var elURL = el.href.split('#')[0];
+              var elSearchParams = (elURL.split('?')[1] || '').split('&');
+              var modified = false;
+              for (var key in utms) {
+                  if (!hasParam(elSearchParams, key)) {
+                      elSearchParams.push(key + '=' + utms[key]);
+                      modified = true;
+                  }
+              }
+              if (!hasParam(elSearchParams, 'sck') && scks.length > 0) {
+                  elSearchParams.push('sck=' + scks.join('|'));
+                  modified = true;
+              }
+              if (modified) {
+                  var newSearchParams = elSearchParams.join('&').replace(/^&/, '');
+                  el.href = elURL.split('?')[0] + '?' + newSearchParams;
+              }
+          }
+      }
+
+      function getValueFromParams(params, key) {
+          for (var i = 0; i < params.length; i++) {
+              var pair = params[i].split('=');
+              if (pair[0] === key) { return pair[1]; }
+          }
+          return null;
+      }
+
+      function hasParam(params, key) {
+          for (var i = 0; i < params.length; i++) {
+              if (params[i].split('=')[0] === key) { return true; }
+          }
+          return false;
+      }
+
+      function getHostname(url) {
+          var a = document.createElement('a');
+          a.href = url;
+          return a.hostname;
+      }
+  })();
+  </script>
+
+</body>
+</html>
