@@ -953,5 +953,99 @@
   }
 </script>
 
+<!-- UTM Tracking - Comunidade Nova Ordem do Digital -->
+<script>
+(function () {
+    var parametros = ["utm_source"];
+    var url = window.location.href;
+    var params = (url.split('?')[1] || '').split('&');
+
+    for (var i = 0; i < params.length; i++) {
+        var key = params[i].split('=')[0];
+        if (parametros.indexOf(key) === -1) {
+            parametros.push(key);
+        }
+    }
+
+    var urlParamsCapt = (window.location.search || '').substring(1).split('&');
+    var urlParamsCaptReferrer = (document.referrer.split('?')[1] || '').split('&');
+    var utms = {};
+
+    for (var i = 0; i < parametros.length; i++) {
+        var el = parametros[i];
+        var value = getValueFromParams(urlParamsCapt, el) || getValueFromParams(urlParamsCaptReferrer, el) || '';
+        if (el === "utm_source") {
+            value = value || (document.referrer ? (getValueFromParams(urlParamsCaptReferrer, el) || getHostname(document.referrer)) : "direto");
+        }
+        utms[el] = value;
+    }
+
+    var scks = [];
+    for (var key in utms) {
+        if (utms[key] !== "") {
+            scks.push(utms[key]);
+        }
+    }
+
+    var currentSckValues = [];
+    var currentSckParam = getValueFromParams(urlParamsCapt, 'sck');
+    if (currentSckParam) {
+        currentSckValues = currentSckParam.split('|');
+    }
+    scks = scks.filter(function(value) {
+        return currentSckValues.indexOf(value) === -1;
+    });
+
+    var links = document.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) {
+        var el = links[i];
+        if (el.href) {
+            var elURL = el.href.split('#')[0];
+            var elSearchParams = (elURL.split('?')[1] || '').split('&');
+            var modified = false;
+            for (var key in utms) {
+                if (!hasParam(elSearchParams, key)) {
+                    elSearchParams.push(key + '=' + utms[key]);
+                    modified = true;
+                }
+            }
+            if (!hasParam(elSearchParams, 'sck') && scks.length > 0) {
+                elSearchParams.push('sck=' + scks.join('|'));
+                modified = true;
+            }
+            if (modified) {
+                var newSearchParams = elSearchParams.join('&').replace(/^&/, '');
+                el.href = elURL.split('?')[0] + '?' + newSearchParams;
+            }
+        }
+    }
+
+    function getValueFromParams(params, key) {
+        for (var i = 0; i < params.length; i++) {
+            var pair = params[i].split('=');
+            if (pair[0] === key) {
+                return pair[1];
+            }
+        }
+        return null;
+    }
+
+    function hasParam(params, key) {
+        for (var i = 0; i < params.length; i++) {
+            if (params[i].split('=')[0] === key) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function getHostname(url) {
+        var a = document.createElement('a');
+        a.href = url;
+        return a.hostname;
+    }
+})();
+</script>
+
 </body>
 </html>
