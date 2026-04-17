@@ -184,22 +184,8 @@
     }
     .road-scene {
       position: absolute; inset: 0;
-      width: 100%; height: 100%;
+      background: url('hero-bg.jpg') center center / cover no-repeat;
     }
-    .road-scene svg { width: 100%; height: 100%; display: block; }
-
-    @keyframes streak-fade {
-      0%,100% { opacity: .55; }
-      50%      { opacity: .9; }
-    }
-    @keyframes glow-pulse {
-      0%,100% { opacity: .7; }
-      50%      { opacity: 1; }
-    }
-    .streak-a { animation: streak-fade 4s ease-in-out infinite; }
-    .streak-b { animation: streak-fade 4s ease-in-out infinite 1.3s; }
-    .streak-c { animation: streak-fade 3.5s ease-in-out infinite 0.7s; }
-    .glow-vp  { animation: glow-pulse 3s ease-in-out infinite; }
 
     .hero-inner {
       /* mantido por compatibilidade com outros breakpoints */
@@ -605,10 +591,10 @@
   ══════════════════════════════════════════ -->
   <section class="hero">
 
-    <!-- visual SVG: rodovia noturna com perspectiva, city e rastros de luz -->
+    <!-- background image -->
     <div class="hero-visual" aria-hidden="true">
       <div class="road-scene">
-        <svg viewBox="0 0 900 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 900 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="display:none">
           <defs>
             <!-- céu noturno -->
             <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
