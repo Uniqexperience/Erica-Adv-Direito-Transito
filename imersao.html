@@ -295,25 +295,40 @@
       margin-top: 1px;
     }
 
-    /* preço inline no hero */
+    /* preço em destaque no hero */
     .hero-price-block {
-      margin-bottom: 28px;
+      background: rgba(201,168,76,.06);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 10px;
+      padding: 20px 24px 24px;
+      margin-bottom: 20px;
     }
-    .hero-price-block .from {
-      font-size: .82rem; color: var(--muted);
-      text-decoration: line-through; margin-bottom: 2px;
+    .hero-price-block .lote-tag {
+      display: inline-block;
+      background: rgba(201,168,76,.15);
+      border: 1px solid rgba(201,168,76,.4);
+      border-radius: 100px;
+      padding: 3px 12px;
+      font-size: .68rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
     }
-    .hero-price-block .label {
-      font-size: .82rem; color: var(--muted); margin-bottom: 2px;
+    .hero-price-block .from-line {
+      font-size: .95rem; color: var(--muted); margin-bottom: 4px;
+    }
+    .hero-price-block .from-line s {
+      color: #c0504d; font-weight: 600;
     }
     .hero-price-block .amount {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem; font-weight: 700;
+      font-size: clamp(3rem, 6vw, 4.2rem);
+      font-weight: 700;
       color: var(--gold); line-height: 1;
     }
-    .hero-price-block .amount sup { font-size: 1.3rem; vertical-align: top; margin-top: 8px; }
+    .hero-price-block .amount sup { font-size: 1.6rem; vertical-align: top; margin-top: 10px; }
     .hero-security {
-      margin-top: 12px; font-size: .78rem; color: var(--muted);
+      margin-top: 10px; font-size: .78rem; color: var(--muted);
     }
 
     /* ── STRIP DE CONFIANÇA ── */
@@ -670,13 +685,13 @@
         </ul>
 
         <div class="hero-price-block">
-          <p class="from">De R$ 187,00</p>
-          <p class="label">Garanta seu ingresso por apenas</p>
-          <div class="amount"><sup>R$</sup>37<span style="font-size:1.4rem">,00</span></div>
+          <span class="lote-tag">Lote promocional</span>
+          <p class="from-line">De <s>R$ 187,00</s> por apenas:</p>
+          <div class="amount"><sup>R$</sup>37<span style="font-size:2rem">,00</span></div>
         </div>
 
-        <a href="SEU_LINK_HOTMART_AQUI" class="btn" target="_blank" rel="noopener noreferrer">
-          Pagar meu ingresso →
+        <a href="SEU_LINK_HOTMART_AQUI" class="btn btn-lg" style="display:block;text-align:center;" target="_blank" rel="noopener noreferrer">
+          Pegar meu ingresso! &rsaquo;
         </a>
 
         <p class="hero-security">🔒 Compra 100% segura · Hotmart</p>
