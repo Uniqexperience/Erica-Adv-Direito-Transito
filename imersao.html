@@ -182,64 +182,25 @@
       height: 140px; z-index: 11;
       background: linear-gradient(to top, var(--bg), transparent);
     }
-    .road-scene { position: absolute; inset: 0; }
-    /* asfalto */
-    .road-asphalt {
-      position: absolute;
-      bottom: 0; left: 50%; transform: translateX(-50%);
-      width: 500px; height: 75%;
-      background: linear-gradient(to top, #0f0e0b 0%, #090807 55%, transparent 100%);
-      clip-path: polygon(38% 100%, 62% 100%, 52% 0%, 48% 0%);
+    .road-scene {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
     }
-    /* bordas pista */
-    .road-edge {
-      position: absolute;
-      bottom: 0; left: 50%; transform: translateX(-50%);
-      width: 500px; height: 70%;
+    .road-scene svg { width: 100%; height: 100%; display: block; }
+
+    @keyframes streak-fade {
+      0%,100% { opacity: .55; }
+      50%      { opacity: .9; }
     }
-    .road-edge::before,
-    .road-edge::after {
-      content: '';
-      position: absolute; bottom: 0;
-      width: 2px; height: 100%;
-      background: linear-gradient(to top, rgba(201,168,76,.4), transparent 70%);
+    @keyframes glow-pulse {
+      0%,100% { opacity: .7; }
+      50%      { opacity: 1; }
     }
-    .road-edge::before { left: 37%; }
-    .road-edge::after  { left: 62%; }
-    /* tracejado central */
-    .road-dashes {
-      position: absolute;
-      bottom: 0; left: 50%; transform: translateX(-50%);
-      width: 3px; height: 66%;
-      background: repeating-linear-gradient(
-        to top,
-        rgba(201,168,76,.6) 0, rgba(201,168,76,.6) 16px,
-        transparent 16px, transparent 32px
-      );
-      z-index: 2;
-    }
-    /* bokeh de faróis */
-    .bokeh { position: absolute; border-radius: 50%; filter: blur(50px); z-index: 1; }
-    .b1 { width:240px; height:240px; top:12%; left:15%;
-          background: radial-gradient(circle, rgba(201,168,76,.16) 0%, transparent 70%); }
-    .b2 { width:160px; height:160px; top:28%; right:8%;
-          background: radial-gradient(circle, rgba(245,200,66,.12) 0%, transparent 70%); }
-    .b3 { width:110px; height:110px; top:52%; left:38%;
-          background: radial-gradient(circle, rgba(201,168,76,.24) 0%, transparent 70%); }
-    .b4 { width:70px; height:70px; top:60%; left:46%;
-          background: radial-gradient(circle, rgba(255,220,100,.4) 0%, transparent 70%);
-          filter: blur(16px); }
-    .b5 { width:280px; height:180px; top:0; right:0;
-          background: radial-gradient(ellipse, rgba(20,30,50,.55) 0%, transparent 70%);
-          filter: blur(40px); }
-    /* ponto de fuga */
-    .road-glow {
-      position: absolute;
-      top: 46%; left: 50%; transform: translate(-50%,-50%);
-      width: 70px; height: 70px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,200,66,.5) 0%, transparent 70%);
-      filter: blur(16px); z-index: 3;
-    }
+    .streak-a { animation: streak-fade 4s ease-in-out infinite; }
+    .streak-b { animation: streak-fade 4s ease-in-out infinite 1.3s; }
+    .streak-c { animation: streak-fade 3.5s ease-in-out infinite 0.7s; }
+    .glow-vp  { animation: glow-pulse 3s ease-in-out infinite; }
+
     .hero-inner {
       /* mantido por compatibilidade com outros breakpoints */
     }
@@ -644,18 +605,176 @@
   ══════════════════════════════════════════ -->
   <section class="hero">
 
-    <!-- visual em absolute — preenche o hero todo sem linha divisória -->
+    <!-- visual SVG: rodovia noturna com perspectiva, city e rastros de luz -->
     <div class="hero-visual" aria-hidden="true">
       <div class="road-scene">
-        <div class="road-asphalt"></div>
-        <div class="road-edge"></div>
-        <div class="road-dashes"></div>
-        <div class="road-glow"></div>
-        <div class="bokeh b1"></div>
-        <div class="bokeh b2"></div>
-        <div class="bokeh b3"></div>
-        <div class="bokeh b4"></div>
-        <div class="bokeh b5"></div>
+        <svg viewBox="0 0 900 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- céu noturno -->
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#06070f"/>
+              <stop offset="55%"  stop-color="#0d0c10"/>
+              <stop offset="100%" stop-color="#12100a"/>
+            </linearGradient>
+            <!-- asfalto -->
+            <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#0a0906" stop-opacity="0"/>
+              <stop offset="30%"  stop-color="#0f0e0b" stop-opacity=".9"/>
+              <stop offset="100%" stop-color="#161410"/>
+            </linearGradient>
+            <!-- acostamento -->
+            <linearGradient id="shoulder" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#1a1710" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#1a1710"/>
+            </linearGradient>
+            <!-- glow do ponto de fuga -->
+            <radialGradient id="vpGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"   stop-color="#f5c842" stop-opacity=".55"/>
+              <stop offset="40%"  stop-color="#c9a84c" stop-opacity=".18"/>
+              <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+            </radialGradient>
+            <!-- faróis dianteiros (branco-âmbar) -->
+            <radialGradient id="headlight" cx="50%" cy="100%" r="80%">
+              <stop offset="0%"   stop-color="#ffe8a0" stop-opacity=".9"/>
+              <stop offset="50%"  stop-color="#c9a84c" stop-opacity=".35"/>
+              <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+            </radialGradient>
+            <!-- lanternas traseiras (vermelho) -->
+            <radialGradient id="taillight" cx="50%" cy="100%" r="80%">
+              <stop offset="0%"   stop-color="#ff4422" stop-opacity=".85"/>
+              <stop offset="50%"  stop-color="#cc2200" stop-opacity=".3"/>
+              <stop offset="100%" stop-color="#cc2200" stop-opacity="0"/>
+            </radialGradient>
+            <!-- bokeh suave -->
+            <radialGradient id="bk1" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"   stop-color="#c9a84c" stop-opacity=".22"/>
+              <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="bk2" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"   stop-color="#8090c0" stop-opacity=".12"/>
+              <stop offset="100%" stop-color="#8090c0" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="blur6"  x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+            <filter id="blur14" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+            <filter id="blur28" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="28"/></filter>
+            <filter id="blur3"  x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+          </defs>
+
+          <!-- fundo céu -->
+          <rect width="900" height="700" fill="url(#sky)"/>
+
+          <!-- estrelas -->
+          <g fill="#ffffff">
+            <circle cx="120" cy="40"  r=".8" opacity=".7"/>
+            <circle cx="210" cy="18"  r=".6" opacity=".5"/>
+            <circle cx="340" cy="55"  r=".9" opacity=".8"/>
+            <circle cx="430" cy="25"  r=".5" opacity=".45"/>
+            <circle cx="530" cy="60"  r=".7" opacity=".6"/>
+            <circle cx="620" cy="32"  r=".8" opacity=".7"/>
+            <circle cx="710" cy="15"  r=".6" opacity=".55"/>
+            <circle cx="800" cy="48"  r=".9" opacity=".75"/>
+            <circle cx="860" cy="22"  r=".5" opacity=".4"/>
+            <circle cx="75"  cy="90"  r=".6" opacity=".5"/>
+            <circle cx="175" cy="110" r=".7" opacity=".6"/>
+            <circle cx="290" cy="85"  r=".5" opacity=".45"/>
+            <circle cx="470" cy="95"  r=".8" opacity=".65"/>
+            <circle cx="580" cy="110" r=".6" opacity=".5"/>
+            <circle cx="680" cy="75"  r=".7" opacity=".6"/>
+            <circle cx="760" cy="100" r=".5" opacity=".45"/>
+            <circle cx="840" cy="80"  r=".8" opacity=".7"/>
+            <circle cx="55"  cy="145" r=".6" opacity=".5"/>
+            <circle cx="390" cy="130" r=".7" opacity=".55"/>
+            <circle cx="720" cy="140" r=".6" opacity=".5"/>
+          </g>
+
+          <!-- silhueta de cidade no horizonte -->
+          <g fill="#0e0d14" opacity=".95">
+            <!-- prédios esquerda -->
+            <rect x="300" y="238" width="18" height="60"/>
+            <rect x="320" y="248" width="22" height="50"/>
+            <rect x="344" y="232" width="14" height="66"/>
+            <rect x="360" y="244" width="20" height="54"/>
+            <rect x="382" y="236" width="16" height="62"/>
+            <rect x="400" y="250" width="24" height="48"/>
+            <rect x="426" y="228" width="12" height="70"/>
+            <rect x="440" y="240" width="18" height="58"/>
+            <!-- prédios direita -->
+            <rect x="460" y="234" width="20" height="64"/>
+            <rect x="482" y="246" width="16" height="52"/>
+            <rect x="500" y="230" width="22" height="68"/>
+            <rect x="524" y="242" width="14" height="56"/>
+            <rect x="540" y="236" width="20" height="62"/>
+            <rect x="562" y="250" width="18" height="48"/>
+            <rect x="582" y="228" width="12" height="70"/>
+          </g>
+          <!-- janelas dos prédios -->
+          <g fill="#c9a84c" opacity=".25">
+            <rect x="303" y="242" width="3" height="3"/><rect x="309" y="242" width="3" height="3"/>
+            <rect x="303" y="250" width="3" height="3"/><rect x="309" y="250" width="3" height="3"/>
+            <rect x="325" y="252" width="3" height="3"/><rect x="331" y="252" width="3" height="3"/>
+            <rect x="347" y="236" width="3" height="3"/><rect x="353" y="236" width="3" height="3"/>
+            <rect x="347" y="244" width="3" height="3"/>
+            <rect x="463" y="238" width="3" height="3"/><rect x="469" y="238" width="3" height="3"/>
+            <rect x="463" y="246" width="3" height="3"/>
+            <rect x="503" y="234" width="3" height="3"/><rect x="509" y="234" width="3" height="3"/>
+            <rect x="503" y="242" width="3" height="3"/><rect x="509" y="242" width="3" height="3"/>
+            <rect x="543" y="240" width="3" height="3"/><rect x="549" y="240" width="3" height="3"/>
+          </g>
+
+          <!-- névoa/glow do horizonte -->
+          <ellipse cx="450" cy="298" rx="280" ry="40" fill="#c9a84c" opacity=".04" filter="url(#blur28)"/>
+          <ellipse cx="450" cy="298" rx="180" ry="20" fill="#c9a84c" opacity=".07" filter="url(#blur14)"/>
+
+          <!-- pista — asfalto perspectiva -->
+          <!-- bordas externas -->
+          <polygon points="295,700 390,298 510,298 605,700" fill="url(#road)"/>
+          <!-- divisores brancos das faixas -->
+          <!-- faixa de divisão esquerda -->
+          <polygon points="390,298 394,298 440,700 430,700" fill="url(#shoulder)" opacity=".08"/>
+          <!-- faixa de divisão direita -->
+          <polygon points="506,298 510,298 470,700 460,700" fill="url(#shoulder)" opacity=".08"/>
+
+          <!-- linhas laterais da pista (branco) -->
+          <line x1="390" y1="298" x2="295" y2="700" stroke="#c9a84c" stroke-width="1.5" stroke-opacity=".35" filter="url(#blur3)"/>
+          <line x1="510" y1="298" x2="605" y2="700" stroke="#c9a84c" stroke-width="1.5" stroke-opacity=".35" filter="url(#blur3)"/>
+
+          <!-- linha tracejada central -->
+          <line x1="450" y1="700" x2="450" y2="298" stroke="white" stroke-width="2" stroke-opacity=".18"
+                stroke-dasharray="28 22" filter="url(#blur3)"/>
+
+          <!-- divisórias de faixa -->
+          <line x1="435" y1="700" x2="400" y2="298" stroke="white" stroke-width="1.5" stroke-opacity=".1"
+                stroke-dasharray="28 22" filter="url(#blur3)"/>
+          <line x1="465" y1="700" x2="500" y2="298" stroke="white" stroke-width="1.5" stroke-opacity=".1"
+                stroke-dasharray="28 22" filter="url(#blur3)"/>
+
+          <!-- ponto de fuga — glow -->
+          <ellipse class="glow-vp" cx="450" cy="298" rx="80" ry="40" fill="url(#vpGlow)" filter="url(#blur14)"/>
+          <ellipse cx="450" cy="298" rx="30" ry="15" fill="#f5c842" opacity=".3" filter="url(#blur6)"/>
+
+          <!-- rastros de faróis dianteiros (vindo do ponto de fuga) -->
+          <!-- faixa esquerda -->
+          <polygon class="streak-a" points="440,320 446,320 415,580 400,580" fill="url(#headlight)" opacity=".55"/>
+          <polygon class="streak-b" points="436,340 442,340 406,620 390,620" fill="url(#headlight)" opacity=".35"/>
+          <!-- faixa direita -->
+          <polygon class="streak-c" points="454,320 460,320 485,580 500,580" fill="url(#headlight)" opacity=".55"/>
+          <polygon class="streak-a" points="458,340 464,340 494,620 510,620" fill="url(#headlight)" opacity=".35"/>
+
+          <!-- rastros de lanternas traseiras (saindo, vermelhas) -->
+          <polygon class="streak-b" points="430,700 420,700 438,400 444,400" fill="url(#taillight)" opacity=".45"/>
+          <polygon class="streak-c" points="470,700 480,700 462,400 456,400" fill="url(#taillight)" opacity=".45"/>
+
+          <!-- bokeh atmosférico -->
+          <circle cx="200" cy="180" r="110" fill="url(#bk1)" filter="url(#blur28)" opacity=".8"/>
+          <circle cx="720" cy="150" r="130" fill="url(#bk2)" filter="url(#blur28)" opacity=".8"/>
+          <circle cx="750" cy="380" r="90"  fill="url(#bk1)" filter="url(#blur28)" opacity=".6"/>
+          <circle cx="130" cy="400" r="80"  fill="url(#bk2)" filter="url(#blur28)" opacity=".5"/>
+
+          <!-- luzes de prédios bokeh -->
+          <circle cx="370" cy="260" r="18" fill="#c9a84c" opacity=".15" filter="url(#blur14)"/>
+          <circle cx="530" cy="250" r="14" fill="#c9a84c" opacity=".12" filter="url(#blur14)"/>
+          <circle cx="490" cy="265" r="10" fill="#e0c070" opacity=".18" filter="url(#blur6)"/>
+        </svg>
       </div>
     </div>
 
