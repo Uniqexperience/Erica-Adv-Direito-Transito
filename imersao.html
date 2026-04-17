@@ -376,25 +376,31 @@
     .includes-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 24px;
     }
     .include-item {
-      display: flex; align-items: flex-start; gap: 16px;
       background: var(--bg-3);
-      border: 1px solid rgba(201,168,76,.12);
-      border-radius: 10px;
-      padding: 24px 20px;
+      border: 1px solid rgba(201,168,76,.15);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color .3s, transform .3s;
     }
-    .include-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; flex-shrink: 0;
+    .include-item:hover {
+      border-color: rgba(201,168,76,.4);
+      transform: translateY(-4px);
+    }
+    .include-img {
+      width: 100%; aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+    }
+    .include-body {
+      padding: 20px 20px 22px;
     }
     .include-item h4 {
-      font-size: .95rem; font-weight: 700; margin-bottom: 4px;
+      font-size: 1rem; font-weight: 700; margin-bottom: 6px; color: var(--text);
     }
-    .include-item p { font-size: .83rem; color: var(--muted); line-height: 1.5; }
+    .include-item p { font-size: .85rem; color: var(--muted); line-height: 1.55; }
 
     /* ── CAIXA DE PREÇO ── */
     .price-section { background: var(--bg); }
@@ -937,29 +943,29 @@
 
       <div class="includes-grid">
         <div class="include-item">
-          <div class="include-icon">🎥</div>
-          <div>
+          <img class="include-img" src="card-aulas.jpg" alt="4 Aulas ao Vivo" />
+          <div class="include-body">
             <h4>4 Aulas ao Vivo</h4>
             <p>Acesso completo às 4 lives da imersão com a Dra. Erica Avallone, com interação em tempo real.</p>
           </div>
         </div>
         <div class="include-item">
-          <div class="include-icon">📚</div>
-          <div>
+          <img class="include-img" src="card-materiais.jpg" alt="Materiais Complementares" />
+          <div class="include-body">
             <h4>Materiais Complementares</h4>
             <p>Checklist de triagem, mapa de oportunidades e planilha de precificação para usar na prática.</p>
           </div>
         </div>
         <div class="include-item">
-          <div class="include-icon">💬</div>
-          <div>
+          <img class="include-img" src="card-grupo.jpg" alt="Grupo Exclusivo de Alunos" />
+          <div class="include-body">
             <h4>Grupo Exclusivo de Alunos</h4>
             <p>Acesso ao grupo de WhatsApp com todos os participantes da imersão para networking e suporte.</p>
           </div>
         </div>
         <div class="include-item">
-          <div class="include-icon">🎯</div>
-          <div>
+          <img class="include-img" src="card-tira-duvidas.jpg" alt="Momentos de Tira-Dúvidas ao Vivo" />
+          <div class="include-body">
             <h4>Momentos de Tira-Dúvidas ao Vivo</h4>
             <p>Espaços dedicados para tirar suas dúvidas diretamente com a Erica durante as aulas.</p>
           </div>
