@@ -275,21 +275,49 @@
     }
 
     /* ── STRIP DE CONFIANÇA ── */
-    .trust-strip {
-      background: var(--bg-2);
-      border-top: 1px solid rgba(201,168,76,.1);
-      border-bottom: 1px solid rgba(201,168,76,.1);
-      padding: 20px 0;
+    /* ── TICKER DOURADO ── */
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
-    .trust-strip .container {
-      display: flex; align-items: center; justify-content: center;
-      gap: 40px; flex-wrap: wrap;
+    .ticker-bar {
+      background: linear-gradient(90deg, #b8860b, #f5c842 30%, #ffe066 50%, #f5c842 70%, #b8860b);
+      overflow: hidden;
+      padding: 0;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      position: relative;
     }
-    .trust-item {
-      display: flex; align-items: center; gap: 8px;
-      font-size: .82rem; color: var(--muted);
+    /* máscara fade nas bordas */
+    .ticker-bar::before,
+    .ticker-bar::after {
+      content: '';
+      position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+      pointer-events: none;
     }
-    .trust-item span { color: var(--gold); font-size: 1rem; }
+    .ticker-bar::before { left: 0;  background: linear-gradient(90deg, #b8860b, transparent); }
+    .ticker-bar::after  { right: 0; background: linear-gradient(-90deg, #b8860b, transparent); }
+    .ticker-track {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      animation: ticker-scroll 22s linear infinite;
+      will-change: transform;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .72rem; font-weight: 800;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: #1a1200;
+      padding: 0 36px;
+    }
+    .ticker-sep {
+      color: rgba(26,18,0,.45);
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
 
     /* ── SEÇÃO DIAS ── */
     .section { padding: 90px 0; }
@@ -810,12 +838,35 @@
   </section>
 
   <!-- ── TRUST STRIP ── -->
-  <div class="trust-strip">
-    <div class="container">
-      <div class="trust-item"><span>🎓</span> +1.500 advogados formados</div>
-      <div class="trust-item"><span>⚖️</span> +10 anos de especialidade</div>
-      <div class="trust-item"><span>🏫</span> Pós-graduação Anhanguera</div>
-      <div class="trust-item"><span>🔒</span> Garantia de 7 dias</div>
+  <!-- ── TICKER DOURADO ── -->
+  <div class="ticker-bar" aria-hidden="true">
+    <div class="ticker-track">
+      <!-- bloco 1 -->
+      <span class="ticker-item">⚖ Imersão Direito de Trânsito na Prática</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">🔴 Ao Vivo — 4 dias</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">🎟 Garanta seu Ingresso</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">🏷 Lote Promocional — R$ 37</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">Vagas Limitadas</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">Exclusivo para Advogados</span>
+      <span class="ticker-sep">✦</span>
+      <!-- bloco 2 — espelho para loop perfeito -->
+      <span class="ticker-item">⚖ Imersão Direito de Trânsito na Prática</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">🔴 Ao Vivo — 4 dias</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">🎟 Garanta seu Ingresso</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">🏷 Lote Promocional — R$ 37</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">Vagas Limitadas</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">Exclusivo para Advogados</span>
+      <span class="ticker-sep">✦</span>
     </div>
   </div>
 
