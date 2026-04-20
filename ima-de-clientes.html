@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imã de Clientes para Advogados — Erica Avallone</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '309780160967181');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=309780160967181&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --gold-dark: #a07832;
+      --bg: #0c0b08;
+      --bg-2: #131109;
+      --bg-3: #1a1710;
+      --text: #f0ead8;
+      --muted: #9e9580;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container    { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .container-sm { max-width: 720px;  margin: 0 auto; padding: 0 24px; }
+    .container-xs { max-width: 580px;  margin: 0 auto; padding: 0 24px; }
+
+    /* ── UTILS ── */
+    .gold { color: var(--gold); }
+
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(100deg,#b8860b 0%,#f5c842 35%,#ffe066 50%,#f5c842 65%,#b8860b 100%);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+      color: #1a1200; font-weight: 800; font-size: 1.05rem;
+      padding: 20px 52px; border-radius: 5px;
+      text-decoration: none; text-transform: uppercase; letter-spacing: .1em;
+      transition: transform .2s, box-shadow .2s; cursor: pointer; border: none;
+      box-shadow: 0 4px 24px rgba(245,200,66,.45), 0 1px 0 rgba(255,255,255,.25) inset;
+      text-shadow: 0 1px 0 rgba(255,255,255,.3);
+    }
+    .btn:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 8px 40px rgba(245,200,66,.65), 0 1px 0 rgba(255,255,255,.25) inset; }
+
+    .section-tag {
+      display: inline-block; font-size:.72rem; font-weight:700; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--gold); border:1px solid var(--gold-dark);
+      padding:5px 14px; border-radius:2px; margin-bottom:20px;
+    }
+    h2.section-title {
+      font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.6rem);
+      font-weight:700; line-height:1.2; margin-bottom:16px;
+    }
+    .divider { width:60px; height:3px; background:linear-gradient(90deg,var(--gold),transparent); margin:20px 0 32px; }
+
+    /* ── HEADER ── */
+    header {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      padding:16px 0; background:rgba(12,11,8,.95); backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(201,168,76,.15);
+    }
+    header .container { display:flex; align-items:center; justify-content:center; }
+    .logo { font-family:'Playfair Display',serif; font-size:1.1rem; letter-spacing:.04em; color:var(--text); text-decoration:none; }
+    .logo span { color:var(--gold); }
+
+    /* ── TICKER ── */
+    @keyframes ticker-scroll {
+      0%   { transform:translateX(0); }
+      100% { transform:translateX(-50%); }
+    }
+    .ticker-bar {
+      background: linear-gradient(90deg,#b8860b,#f5c842 30%,#ffe066 50%,#f5c842 70%,#b8860b);
+      overflow:hidden; height:40px; display:flex; align-items:center; position:relative;
+    }
+    .ticker-bar::before,.ticker-bar::after {
+      content:''; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none;
+    }
+    .ticker-bar::before { left:0;  background:linear-gradient(90deg,#b8860b,transparent); }
+    .ticker-bar::after  { right:0; background:linear-gradient(-90deg,#b8860b,transparent); }
+    .ticker-track {
+      display:flex; align-items:center; white-space:nowrap;
+      animation:ticker-scroll 20s linear infinite; will-change:transform;
+    }
+    .ticker-track:hover { animation-play-state:paused; }
+    .ticker-item { display:inline-flex; align-items:center; gap:8px; font-size:.7rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:#1a1200; padding:0 32px; }
+    .ticker-sep  { color:rgba(26,18,0,.4); font-size:.9rem; flex-shrink:0; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 120px 0 80px;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,.1) 0%, transparent 70%),
+        var(--bg);
+      border-bottom:1px solid rgba(201,168,76,.1);
+      text-align:center;
+    }
+    .hero-eyebrow {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.3);
+      border-radius:100px; padding:6px 18px;
+      font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+      color:var(--gold-light); margin-bottom:24px;
+    }
+    .hero-eyebrow .dot { width:6px; height:6px; border-radius:50%; background:var(--gold); }
+    .hero h1 {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2rem,5vw,3.4rem); font-weight:700; line-height:1.2;
+      margin-bottom:20px; max-width:820px; margin-left:auto; margin-right:auto;
+    }
+    .hero-sub {
+      font-size:1.1rem; color:var(--muted); max-width:620px;
+      margin:0 auto 40px; line-height:1.7;
+    }
+    .hero-sub strong { color:var(--text); }
+    .hero-cta-group { display:flex; flex-direction:column; align-items:center; gap:12px; margin-bottom:48px; }
+    .hero-security { font-size:.8rem; color:var(--muted); }
+
+    /* price strip no hero */
+    .hero-price {
+      display:inline-flex; align-items:center; gap:20px;
+      background:var(--bg-3); border:1px solid rgba(201,168,76,.25);
+      border-radius:10px; padding:16px 28px; margin-bottom:32px; flex-wrap:wrap; justify-content:center;
+    }
+    .hero-price .from { font-size:.9rem; color:var(--muted); }
+    .hero-price .from s { color:#c0504d; font-weight:600; }
+    .hero-price .sep { color:rgba(201,168,76,.3); font-size:1.2rem; }
+    .hero-price .amount {
+      font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:700;
+      color:var(--gold); line-height:1;
+    }
+    .hero-price .amount sup { font-size:1.1rem; vertical-align:top; margin-top:6px; }
+
+    /* ── PROBLEMA ── */
+    .problem-section { padding:90px 0; }
+    .problem-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+    .problem-text h2 { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3vw,2.2rem); font-weight:700; line-height:1.3; margin-bottom:24px; }
+    .problem-text p { font-size:.95rem; color:var(--muted); line-height:1.8; margin-bottom:16px; }
+    .problem-text p strong { color:var(--text); }
+    .problem-stat-box {
+      background:var(--bg-3); border:1px solid rgba(201,168,76,.2);
+      border-radius:14px; padding:36px 32px;
+    }
+    .stat-item { margin-bottom:28px; }
+    .stat-item:last-child { margin-bottom:0; }
+    .stat-num {
+      font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:700;
+      color:var(--gold); line-height:1; margin-bottom:4px;
+    }
+    .stat-label { font-size:.85rem; color:var(--muted); }
+    .stat-divider { height:1px; background:rgba(201,168,76,.1); margin:28px 0; }
+
+    /* ── AGITAÇÃO ── */
+    .agitation { padding:80px 0; background:var(--bg-2); }
+    .agit-list { list-style:none; max-width:660px; margin:0 auto; }
+    .agit-list li {
+      display:flex; align-items:flex-start; gap:14px;
+      padding:18px 0; border-bottom:1px solid rgba(255,255,255,.05);
+      font-size:.97rem; line-height:1.6;
+    }
+    .agit-list li:last-child { border-bottom:none; }
+    .agit-icon { font-size:1.1rem; flex-shrink:0; margin-top:2px; }
+
+    /* ── O QUE ENTREGA ── */
+    .delivers-section { padding:90px 0; }
+    .delivers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .deliver-card {
+      background:var(--bg-3); border:1px solid rgba(201,168,76,.12);
+      border-radius:12px; padding:28px 24px;
+      transition:border-color .3s, transform .3s;
+    }
+    .deliver-card:hover { border-color:rgba(201,168,76,.4); transform:translateY(-4px); }
+    .deliver-num {
+      width:36px; height:36px; border-radius:50%;
+      background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+      display:flex; align-items:center; justify-content:center;
+      font-size:.8rem; font-weight:800; color:#1a1200;
+      margin-bottom:16px;
+    }
+    .deliver-card h3 { font-size:1rem; font-weight:700; margin-bottom:8px; }
+    .deliver-card p { font-size:.85rem; color:var(--muted); line-height:1.6; }
+
+    /* ── PARA QUEM ── */
+    .for-who-section { padding:90px 0; background:var(--bg-2); }
+    .for-who-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+    .for-who-box {
+      background:var(--bg-3); border:1px solid rgba(201,168,76,.12);
+      border-radius:12px; padding:32px 28px;
+    }
+    .for-who-box h3 {
+      font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700;
+      margin-bottom:20px; display:flex; align-items:center; gap:10px;
+    }
+    .for-who-box ul { list-style:none; }
+    .for-who-box ul li {
+      display:flex; align-items:flex-start; gap:10px;
+      font-size:.88rem; color:var(--muted); margin-bottom:12px; line-height:1.5;
+    }
+    .for-who-box ul li::before { flex-shrink:0; margin-top:1px; }
+    .for-who-box.yes ul li::before { content:'✓'; color:#5cb85c; font-weight:700; }
+    .for-who-box.no  ul li::before { content:'✕'; color:#c0504d; font-weight:700; }
+
+    /* ── BÔNUS ── */
+    .bonus-section { padding:90px 0; }
+    .bonus-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .bonus-card {
+      background:var(--bg-3); border:1px solid rgba(201,168,76,.2);
+      border-radius:12px; padding:28px 24px;
+      position:relative; overflow:hidden;
+    }
+    .bonus-card::before {
+      content:'BÔNUS'; position:absolute; top:16px; right:16px;
+      background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+      color:#1a1200; font-size:.6rem; font-weight:800; letter-spacing:.12em;
+      padding:3px 10px; border-radius:2px;
+    }
+    .bonus-card h3 { font-size:1rem; font-weight:700; margin-bottom:8px; padding-right:60px; }
+    .bonus-card p { font-size:.85rem; color:var(--muted); line-height:1.6; }
+
+    /* ── BIO ── */
+    .bio-section { padding:90px 0; background:var(--bg-2); }
+    .bio-inner { display:grid; grid-template-columns:300px 1fr; gap:64px; align-items:center; }
+    .bio-photo { position:relative; }
+    .bio-photo img { width:100%; border-radius:12px; filter:grayscale(15%); border:1px solid rgba(201,168,76,.2); }
+    .bio-badge {
+      position:absolute; bottom:-16px; left:50%; transform:translateX(-50%);
+      background:var(--bg-3); border:1px solid rgba(201,168,76,.3); border-radius:8px;
+      padding:10px 20px; white-space:nowrap; text-align:center;
+    }
+    .bio-badge .name { font-size:.9rem; font-weight:700; }
+    .bio-badge .title { font-size:.72rem; color:var(--gold); letter-spacing:.08em; }
+    .bio-content p { font-size:.95rem; color:var(--muted); line-height:1.8; margin-bottom:14px; }
+    .bio-content p strong { color:var(--text); }
+    .bio-stats { display:flex; gap:32px; margin-top:28px; flex-wrap:wrap; }
+    .bio-stat .num { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--gold); }
+    .bio-stat .label { font-size:.78rem; color:var(--muted); }
+
+    /* ── PREÇO ── */
+    .price-section { padding:90px 0; }
+    .price-box {
+      max-width:580px; margin:0 auto;
+      background:var(--bg-3); border:1px solid rgba(201,168,76,.35);
+      border-radius:20px; padding:52px 48px; text-align:center;
+      box-shadow:0 32px 80px rgba(0,0,0,.5);
+    }
+    .price-box h2 { font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:8px; }
+    .price-box .sub { font-size:.88rem; color:var(--muted); margin-bottom:32px; }
+    .price-from { font-size:.9rem; color:var(--muted); text-decoration:line-through; margin-bottom:4px; }
+    .price-main {
+      font-family:'Playfair Display',serif; font-size:4.2rem; font-weight:700;
+      color:var(--gold); line-height:1; margin-bottom:8px;
+    }
+    .price-main sup { font-size:1.8rem; vertical-align:top; margin-top:12px; }
+    .price-installment { font-size:.85rem; color:var(--muted); margin-bottom:32px; }
+    .price-box .btn { display:block; width:100%; text-align:center; margin-bottom:16px; }
+    .price-guarantee {
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      font-size:.82rem; color:var(--muted);
+    }
+    .price-guarantee span { color:var(--gold); }
+    .price-checklist { margin-top:28px; padding-top:28px; border-top:1px solid rgba(201,168,76,.1); text-align:left; }
+    .price-checklist li {
+      display:flex; align-items:center; gap:10px;
+      font-size:.88rem; margin-bottom:10px; list-style:none;
+    }
+    .price-checklist li::before {
+      content:'✓'; width:18px; height:18px; border-radius:50; flex-shrink:0;
+      background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+      display:flex; align-items:center; justify-content:center;
+      font-size:.6rem; font-weight:900; color:#1a1200; border-radius:50%;
+    }
+
+    /* ── FAQ ── */
+    .faq-section { padding:90px 0; background:var(--bg-2); }
+    .faq-list { max-width:680px; margin:0 auto; }
+    .faq-item { border-bottom:1px solid rgba(201,168,76,.12); }
+    .faq-q {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:22px 0; cursor:pointer; font-size:.95rem; font-weight:600;
+      gap:16px; user-select:none;
+    }
+    .faq-q .icon {
+      width:24px; height:24px; border-radius:50%; border:1px solid rgba(201,168,76,.3);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold); font-size:.9rem; flex-shrink:0; transition:transform .3s;
+    }
+    .faq-item.open .faq-q .icon { transform:rotate(45deg); }
+    .faq-a { display:none; font-size:.9rem; color:var(--muted); line-height:1.7; padding-bottom:20px; }
+    .faq-item.open .faq-a { display:block; }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      padding:90px 0; text-align:center;
+      background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(201,168,76,.08) 0%,transparent 70%),var(--bg);
+      border-top:1px solid rgba(201,168,76,.1); border-bottom:1px solid rgba(201,168,76,.1);
+    }
+    .final-cta h2 { margin-bottom:16px; }
+    .final-cta p { font-size:1rem; color:var(--muted); max-width:520px; margin:0 auto 40px; }
+
+    /* ── FOOTER ── */
+    footer { padding:32px 0; border-top:1px solid rgba(201,168,76,.1); text-align:center; }
+    .footer-links { display:flex; gap:20px; justify-content:center; margin-bottom:10px; flex-wrap:wrap; }
+    .footer-links a { font-size:.8rem; color:var(--muted); text-decoration:none; transition:color .2s; }
+    .footer-links a:hover { color:var(--gold); }
+    .footer-copy { font-size:.78rem; color:var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:860px) {
+      .problem-grid  { grid-template-columns:1fr; }
+      .delivers-grid { grid-template-columns:1fr; }
+      .for-who-grid  { grid-template-columns:1fr; }
+      .bonus-grid    { grid-template-columns:1fr; }
+      .bio-inner     { grid-template-columns:1fr; }
+      .bio-photo     { max-width:260px; margin:0 auto 48px; }
+      .price-box     { padding:36px 24px; }
+      .hero-price    { flex-direction:column; gap:8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="container">
+      <a class="logo" href="#">Erica <span>Avallone</span></a>
+    </div>
+  </header>
+
+  <!-- ── TICKER ── -->
+  <div class="ticker-bar" style="margin-top:62px;" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">⚖ Imã de Clientes para Advogados</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">🎯 15 Canais de Aquisição Validados</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">📈 Sistema para 5 a 10 Clientes por Mês</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">🔒 Garantia de 7 Dias</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">✅ 100% Ético — Aprovado pela OAB</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">⚖ Imã de Clientes para Advogados</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">🎯 15 Canais de Aquisição Validados</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">📈 Sistema para 5 a 10 Clientes por Mês</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">🔒 Garantia de 7 Dias</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">✅ 100% Ético — Aprovado pela OAB</span>
+      <span class="ticker-sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       HERO
+  ══════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero-eyebrow">
+        <span class="dot"></span> Método validado com +1.500 advogados
+      </div>
+
+      <h1>
+        Pare de correr atrás de cliente.<br>
+        Aprenda a fazer eles <span class="gold">pedirem para te contratar.</span>
+      </h1>
+
+      <p class="hero-sub">
+        O guia prático com <strong>15 canais de aquisição testados</strong> que ensinam advogados a atrair clientes qualificados toda semana — sem anúncios pagos, sem ferir a ética da OAB, sem depender de indicação.
+      </p>
+
+      <div class="hero-price">
+        <div class="from">De <s>R$ 497,00</s></div>
+        <div class="sep">→</div>
+        <div>
+          <div style="font-size:.82rem;color:var(--muted);margin-bottom:2px;">Por apenas</div>
+          <div class="amount"><sup>R$</sup>197<span style="font-size:1.4rem">,00</span></div>
+        </div>
+        <div class="sep">·</div>
+        <div style="font-size:.82rem;color:var(--muted);line-height:1.5;">ou 12x de<br><strong style="color:var(--text);font-size:1rem;">R$ 19,70</strong></div>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="SEU_LINK_HOTMART_AQUI" class="btn" target="_blank" rel="noopener noreferrer">
+          Quero atrair clientes agora
+        </a>
+        <p class="hero-security">🔒 Compra 100% segura · Garantia incondicional de 7 dias</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       PROBLEMA
+  ══════════════════════════════════ -->
+  <section class="problem-section">
+    <div class="container">
+      <div class="problem-grid">
+
+        <div class="problem-text">
+          <div class="section-tag">O verdadeiro problema</div>
+          <h2>Você não perdeu a habilidade técnica.<br><span class="gold">Ninguém sabe que você existe.</span></h2>
+          <div class="divider"></div>
+          <p>Enquanto você espera indicação ou torce para um caso aparecer, seu concorrente tem <strong>fila de espera</strong>. A diferença não está no conhecimento jurídico.</p>
+          <p>A diferença está em ser <strong>encontrado quando o cliente procura ajuda</strong>. E isso tem método.</p>
+          <p>Enquanto você acredita que "advogado não faz marketing", seus concorrentes fecham dezenas de contratos por semana com estratégias <strong>100% éticas e aprovadas pelo Código de Ética da OAB</strong>.</p>
+          <p>Mesma cidade. Mesma área de atuação. Sistema completamente diferente.</p>
+        </div>
+
+        <div class="problem-stat-box">
+          <div class="stat-item">
+            <div class="stat-num">80%</div>
+            <div class="stat-label">dos advogados não têm previsibilidade de clientes — dependem de sorte e indicação</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-num">11 anos</div>
+            <div class="stat-label">de dados reais sobre como clientes escolhem advogados no Brasil</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-num">+1.500</div>
+            <div class="stat-label">advogados que saíram da estagnação usando este método</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       AGITAÇÃO
+  ══════════════════════════════════ -->
+  <section class="agitation">
+    <div class="container-sm">
+
+      <div style="text-align:center; margin-bottom:48px;">
+        <div class="section-tag">Reconhece alguma dessas situações?</div>
+        <h2 class="section-title">Se um desses é você,<br>este guia foi feito para te tirar daqui</h2>
+        <div class="divider" style="margin:20px auto 0;"></div>
+      </div>
+
+      <ul class="agit-list">
+        <li><span class="agit-icon">😓</span> Você abre o mês sem saber quantos clientes vai fechar — e isso gera uma ansiedade que nunca vai embora</li>
+        <li><span class="agit-icon">📲</span> Fica esperando o celular tocar com uma indicação que pode ou não aparecer</li>
+        <li><span class="agit-icon">💸</span> Já tentou anúncios e gastou dinheiro sem resultado concreto</li>
+        <li><span class="agit-icon">😔</span> Sente que tem conhecimento técnico de sobra, mas a agenda não reflete isso</li>
+        <li><span class="agit-icon">🔄</span> Aceita qualquer caso porque precisa do dinheiro — mesmo os que drenam sua energia</li>
+        <li><span class="agit-icon">⏳</span> Vê colegas com escritório cheio e não entende o que estão fazendo de diferente</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       O QUE ENTREGA
+  ══════════════════════════════════ -->
+  <section class="delivers-section">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom:56px;">
+        <div class="section-tag">O que está dentro do guia</div>
+        <h2 class="section-title">Tudo que você precisa para<br><span class="gold">ter clientes toda semana</span></h2>
+        <div class="divider" style="margin:20px auto 0;"></div>
+      </div>
+
+      <div class="delivers-grid">
+        <div class="deliver-card">
+          <div class="deliver-num">1</div>
+          <h3>15 Canais de Aquisição Validados</h3>
+          <p>Online e offline, testados na prática com custo-benefício claro e tempo real de implementação.</p>
+        </div>
+        <div class="deliver-card">
+          <div class="deliver-num">2</div>
+          <h3>Método para Ser Encontrado</h3>
+          <p>Posicionamento simples que faz o cliente chegar até você pela sua especialidade — sem parecer vendedor.</p>
+        </div>
+        <div class="deliver-card">
+          <div class="deliver-num">3</div>
+          <h3>Estratégia de Prospecção Local</h3>
+          <p>Como dominar seu território físico e ser o primeiro nome lembrado quando alguém precisa de ajuda.</p>
+        </div>
+        <div class="deliver-card">
+          <div class="deliver-num">4</div>
+          <h3>Técnicas de Abordagem que Convertem</h3>
+          <p>Como conduzir conversas de forma natural para transformar consultas em contratos, sem pressão.</p>
+        </div>
+        <div class="deliver-card">
+          <div class="deliver-num">5</div>
+          <h3>Sistema de 5 a 10 Clientes por Mês</h3>
+          <p>Fluxo previsível que cabe na sua rotina. Bastam 30 minutos por dia para manter o sistema girando.</p>
+        </div>
+        <div class="deliver-card">
+          <div class="deliver-num">6</div>
+          <h3>Prospecção Orgânica Sem Anúncios</h3>
+          <p>Como atrair clientes qualificados sem gastar um centavo com tráfego pago e sem depender de plataforma.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       PARA QUEM É / NÃO É
+  ══════════════════════════════════ -->
+  <section class="for-who-section">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom:56px;">
+        <div class="section-tag">Seja honesto consigo</div>
+        <h2 class="section-title">Este guia é para você?</h2>
+        <div class="divider" style="margin:20px auto 0;"></div>
+      </div>
+
+      <div class="for-who-grid">
+        <div class="for-who-box yes">
+          <h3><span style="color:#5cb85c">✓</span> É para você se…</h3>
+          <ul>
+            <li>Tem conhecimento técnico, mas não tem previsibilidade de clientes</li>
+            <li>Cansou de depender de indicação aleatória para fechar o mês</li>
+            <li>Quer um sistema claro, não um golpe de sorte</li>
+            <li>Está disposto a colocar em prática um método simples por 30 dias</li>
+            <li>É advogado de qualquer área e precisa de fluxo constante de novos casos</li>
+          </ul>
+        </div>
+        <div class="for-who-box no">
+          <h3><span style="color:#c0504d">✕</span> Não é para você se…</h3>
+          <ul>
+            <li>Espera resultado sem aplicar absolutamente nada</li>
+            <li>Prefere reclamar da concorrência em vez de agir</li>
+            <li>Não está disposto a testar os canais apresentados</li>
+            <li>Acredita que advogado não deve fazer marketing de nenhuma forma</li>
+            <li>Acha que ler sem executar vai mudar alguma coisa</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       BÔNUS
+  ══════════════════════════════════ -->
+  <section class="bonus-section">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom:56px;">
+        <div class="section-tag">Surpresa incluída</div>
+        <h2 class="section-title">Além do guia, você leva<br><span class="gold">esses bônus exclusivos</span></h2>
+        <div class="divider" style="margin:20px auto 0;"></div>
+      </div>
+
+      <div class="bonus-grid">
+        <div class="bonus-card">
+          <h3>Ingresso para a Imersão: A Área Mais Lucrativa do Direito</h3>
+          <p>Imersão online completa com o guia prático para faturar pelo menos R$ 10.000/mês atuando em Direito de Trânsito — a área com 80 milhões de clientes potenciais e poucos especialistas.</p>
+        </div>
+        <div class="bonus-card">
+          <h3>Atendimento Eficiente: Feche Mais Contratos</h3>
+          <p>Atrair o cliente é metade do caminho. Este bônus ensina como conduzir o atendimento de forma certeira para transformar a maioria das consultas em contratos assinados.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       BIO
+  ══════════════════════════════════ -->
+  <section class="bio-section">
+    <div class="container">
+      <div class="bio-inner">
+
+        <div class="bio-photo">
+          <img src="erica-avallone.png" alt="Dra. Erica Avallone" />
+          <div class="bio-badge">
+            <div class="name">Dra. Erica Avallone</div>
+            <div class="title">Advogada · Mentora Jurídica</div>
+          </div>
+        </div>
+
+        <div class="bio-content">
+          <div class="section-tag">Quem criou este método</div>
+          <h2 class="section-title">Dra. <span class="gold">Erica Avallone</span></h2>
+          <div class="divider"></div>
+          <p>Advogada há mais de <strong>11 anos</strong>, construiu um escritório que fecha contratos todos os dias usando um sistema simples: ser encontrada por quem realmente precisa.</p>
+          <p>Não é sobre viralizar na internet. Não é sobre gastar com anúncios. É sobre <strong>estar no lugar certo quando o cliente procura ajuda</strong>.</p>
+          <p>Depois de ajudar mais de <strong>1.500 advogados</strong> a saírem da estagnação, mapeou o que funciona e o que não funciona na prática jurídica brasileira — e colocou tudo neste guia.</p>
+          <p>Em 2026, lançou oficialmente sua pós-graduação em parceria com a <strong>Faculdade Anhanguera</strong> — referência nacional na área.</p>
+          <div class="bio-stats">
+            <div class="bio-stat"><div class="num">11+</div><div class="label">anos de advocacia</div></div>
+            <div class="bio-stat"><div class="num">+1.500</div><div class="label">advogados formados</div></div>
+            <div class="bio-stat"><div class="num">100%</div><div class="label">ético — aprovado OAB</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       PREÇO
+  ══════════════════════════════════ -->
+  <section class="price-section">
+    <div class="container">
+      <div class="price-box">
+        <div class="section-tag" style="margin-bottom:12px;">Acesso completo</div>
+        <h2>Imã de Clientes<br><span class="gold">para Advogados</span></h2>
+        <p class="sub">O guia prático para ter clientes toda semana</p>
+
+        <p class="price-from">De R$ 497,00</p>
+        <div class="price-main"><sup>R$</sup>197<span style="font-size:2rem">,00</span></div>
+        <p class="price-installment">ou 12x de R$ 19,70 no cartão</p>
+
+        <a href="SEU_LINK_HOTMART_AQUI" class="btn" target="_blank" rel="noopener noreferrer">
+          Garantir meu acesso agora
+        </a>
+
+        <p class="price-guarantee"><span>🔒</span> Garantia incondicional de 7 dias sem perguntas</p>
+
+        <ul class="price-checklist">
+          <li>Guia completo com 15 canais de aquisição</li>
+          <li>Sistema de 5 a 10 clientes por mês</li>
+          <li>Prospecção orgânica sem anúncios</li>
+          <li>Bônus: Ingresso para a Imersão de Direito de Trânsito</li>
+          <li>Bônus: Atendimento Eficiente — feche mais contratos</li>
+          <li>Acesso imediato após a compra</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FAQ
+  ══════════════════════════════════ -->
+  <section class="faq-section">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom:56px;">
+        <div class="section-tag">Dúvidas frequentes</div>
+        <h2 class="section-title">Perguntas frequentes</h2>
+        <div class="divider" style="margin:20px auto 0;"></div>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Funciona para qualquer área do Direito? <span class="icon">+</span></div>
+          <div class="faq-a">Sim. Os 15 canais são adaptáveis. Você ajusta a abordagem para a sua especialidade e aplica. Trabalhista, família, cível, trânsito — o método funciona em todas as áreas.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Preciso investir em anúncios? <span class="icon">+</span></div>
+          <div class="faq-a">Não. O foco é prospecção orgânica e local. Nenhum dos 15 canais exige verba publicitária. Você aprende a atrair clientes sem depender de tráfego pago.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Quanto tempo leva para ver resultado? <span class="icon">+</span></div>
+          <div class="faq-a">Você consegue ativar o primeiro canal em menos de uma semana. Os primeiros resultados costumam aparecer entre 2 e 4 semanas de aplicação consistente.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">E se eu não tiver tempo? <span class="icon">+</span></div>
+          <div class="faq-a">O sistema foi desenhado para caber em 30 minutos por dia. Não precisa trabalhar mais — precisa trabalhar certo. O guia mostra exatamente o que fazer em cada janela de tempo.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Posso parcelar? <span class="icon">+</span></div>
+          <div class="faq-a">Sim. Em até 12x no cartão de crédito. Ou à vista no cartão, pix ou boleto.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">E se não funcionar para mim? <span class="icon">+</span></div>
+          <div class="faq-a">Você tem 7 dias de garantia incondicional. Implemente, teste, aplique. Se dentro de uma semana não sentir que o método pode transformar sua captação, devolvemos 100% do valor. Sem perguntas. Sem burocracia.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FINAL CTA
+  ══════════════════════════════════ -->
+  <section class="final-cta">
+    <div class="container-xs">
+      <div class="section-tag">Sua decisão hoje define seu 2026</div>
+      <h2 class="section-title">Você pode continuar esperando.<br>Ou pode ter clientes <span class="gold">toda semana.</span></h2>
+      <p>R$ 197 não compra segurança financeira. Mas compra o método para chegar lá — com garantia de 7 dias se não funcionar.</p>
+      <a href="SEU_LINK_HOTMART_AQUI" class="btn" target="_blank" rel="noopener noreferrer">
+        Quero atrair clientes agora
+      </a>
+      <p style="margin-top:16px;font-size:.8rem;color:var(--muted);">🔒 Compra segura · Acesso imediato · Garantia de 7 dias</p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <a class="logo" href="#" style="display:block;margin-bottom:12px;">Erica <span>Avallone</span></a>
+      <div class="footer-links">
+        <a href="https://youtube.com/@ericaavallonetransito" target="_blank">YouTube</a>
+        <a href="https://instagram.com/ericaavalloneoficial" target="_blank">Instagram</a>
+        <a href="https://tiktok.com/@ericaavalloneoficial" target="_blank">TikTok</a>
+      </div>
+      <p class="footer-copy">© 2026 Erica Avallone · Imã de Clientes para Advogados. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+  function toggleFaq(el) {
+    var item = el.parentElement;
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+    if (!isOpen) item.classList.add('open');
+  }
+  </script>
+
+  <!-- UTM Tracking -->
+  <script>
+  (function(){
+    var parametros=["utm_source"];
+    var url=window.location.href;
+    var params=(url.split('?')[1]||'').split('&');
+    for(var i=0;i<params.length;i++){var key=params[i].split('=')[0];if(parametros.indexOf(key)===-1)parametros.push(key);}
+    var urlP=(window.location.search||'').substring(1).split('&');
+    var refP=(document.referrer.split('?')[1]||'').split('&');
+    var utms={};
+    for(var i=0;i<parametros.length;i++){var el=parametros[i];var v=getV(urlP,el)||getV(refP,el)||'';if(el==="utm_source")v=v||(document.referrer?(getV(refP,el)||getH(document.referrer)):"direto");utms[el]=v;}
+    var scks=[];for(var k in utms){if(utms[k]!=="")scks.push(utms[k]);}
+    var csv=[];var csp=getV(urlP,'sck');if(csp)csv=csp.split('|');
+    scks=scks.filter(function(v){return csv.indexOf(v)===-1;});
+    var links=document.querySelectorAll('a');
+    for(var i=0;i<links.length;i++){var el=links[i];if(el.href){var eu=el.href.split('#')[0];var esp=(eu.split('?')[1]||'').split('&');var mod=false;for(var k in utms){if(!hasP(esp,k)){esp.push(k+'='+utms[k]);mod=true;}}if(!hasP(esp,'sck')&&scks.length>0){esp.push('sck='+scks.join('|'));mod=true;}if(mod){var ns=esp.join('&').replace(/^&/,'');el.href=eu.split('?')[0]+'?'+ns;}}}
+    function getV(p,k){for(var i=0;i<p.length;i++){var pr=p[i].split('=');if(pr[0]===k)return pr[1];}return null;}
+    function hasP(p,k){for(var i=0;i<p.length;i++){if(p[i].split('=')[0]===k)return true;}return false;}
+    function getH(u){var a=document.createElement('a');a.href=u;return a.hostname;}
+  })();
+  </script>
+
+</body>
+</html>
