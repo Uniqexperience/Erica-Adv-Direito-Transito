@@ -165,6 +165,143 @@
     }
     .hero-price .amount sup { font-size:1.1rem; vertical-align:top; margin-top:6px; }
 
+    /* ── COMPARATIVO INFOGRÁFICO ── */
+    .compare-section {
+      padding: 96px 0 80px;
+      background: var(--bg-2);
+      position: relative;
+      overflow: hidden;
+    }
+    .compare-section::before {
+      content:'';
+      position:absolute; top:0; left:0; right:0; height:1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,.3), transparent);
+    }
+    .compare-header { text-align:center; margin-bottom:56px; }
+    .compare-sub { font-size:.97rem; color:var(--muted); max-width:600px; margin:0 auto; line-height:1.7; }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr;
+      gap: 0;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    .compare-card {
+      background: var(--bg-3);
+      border-radius: 16px;
+      padding: 32px 28px;
+      border: 1px solid rgba(255,255,255,.06);
+      position: relative;
+    }
+    .compare-bad  { border-color: rgba(192,80,77,.25); }
+    .compare-good { border-color: rgba(201,168,76,.35); box-shadow: 0 0 40px rgba(201,168,76,.06); }
+
+    .compare-card-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 28px;
+    }
+    .compare-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .compare-avatar.bad  { background: rgba(192,80,77,.15); color: #e07070; border: 1px solid rgba(192,80,77,.3); }
+    .compare-avatar.good { background: rgba(201,168,76,.15); color: var(--gold); border: 1px solid rgba(201,168,76,.3); }
+    .compare-card-label { font-size:.95rem; font-weight:700; margin-bottom:2px; }
+    .bad-label  { color: #e07070; }
+    .good-label { color: var(--gold); }
+    .compare-card-desc { font-size:.78rem; color: var(--muted); }
+
+    /* barras de progresso */
+    .compare-meter-row {
+      display: grid; grid-template-columns: 1fr auto auto;
+      align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+    .meter-label { font-size:.75rem; color: var(--muted); }
+    .meter-bar {
+      width: 100px; height: 6px; background: rgba(255,255,255,.07);
+      border-radius: 99px; overflow: hidden;
+    }
+    .meter-fill { height: 100%; border-radius: 99px; transition: width 1s ease; }
+    .bad-fill  { background: linear-gradient(90deg, #7a2020, #c0504d); }
+    .good-fill { background: linear-gradient(90deg, var(--gold-dark), var(--gold-light)); }
+    .meter-pct { font-size:.72rem; font-weight:700; min-width:28px; text-align:right; }
+    .bad-pct  { color: #c0504d; }
+    .good-pct { color: var(--gold); }
+
+    /* listas */
+    .compare-list { list-style:none; margin-top: 24px; margin-bottom: 24px; }
+    .compare-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .85rem; padding: 9px 0;
+      border-bottom: 1px solid rgba(255,255,255,.04); line-height: 1.5;
+    }
+    .compare-list li:last-child { border-bottom: none; }
+    .ci-icon { flex-shrink:0; font-size:.8rem; font-weight:800; margin-top:1px; }
+    .bad-item  .ci-icon { color:#c0504d; }
+    .good-item .ci-icon { color:#5cb85c; }
+    .bad-item  { color: var(--muted); }
+    .good-item { color: var(--text); }
+
+    /* resultado */
+    .compare-result {
+      margin-top: 8px; padding: 18px 20px; border-radius: 10px; text-align: center;
+    }
+    .bad-result  { background: rgba(192,80,77,.08); border: 1px solid rgba(192,80,77,.2); }
+    .good-result { background: rgba(201,168,76,.08); border: 1px solid rgba(201,168,76,.25); }
+    .cr-num {
+      font-family:'Playfair Display',serif;
+      font-size: 2.4rem; font-weight:700; line-height:1; margin-bottom:4px;
+    }
+    .bad-result  .cr-num { color: #e07070; }
+    .good-result .cr-num { color: var(--gold); }
+    .cr-label { font-size:.78rem; color: var(--muted); }
+
+    /* divisor VS */
+    .vs-divider {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; padding: 0 4px; padding-top: 160px;
+    }
+    .vs-line { width: 1px; flex:1; background: linear-gradient(to bottom, transparent, rgba(201,168,76,.2), transparent); min-height: 60px; }
+    .vs-badge {
+      font-family:'Playfair Display',serif;
+      font-size: .85rem; font-weight:700; color: var(--gold);
+      background: var(--bg-3); border: 1px solid rgba(201,168,76,.3);
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items:center; justify-content:center;
+      flex-shrink:0; margin: 8px 0;
+    }
+
+    /* linha de métricas */
+    .compare-metrics {
+      display: flex; align-items: stretch; gap: 0;
+      background: var(--bg-3); border: 1px solid rgba(201,168,76,.15);
+      border-radius: 14px; overflow: hidden; margin-bottom: 48px;
+    }
+    .cm-item {
+      flex: 1; padding: 24px 20px; text-align: center;
+      display: flex; flex-direction:column; align-items:center; gap: 8px;
+    }
+    .cm-sep { width: 1px; background: rgba(201,168,76,.1); flex-shrink:0; }
+    .cm-icon { font-size: 1.4rem; }
+    .cm-vals {
+      display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:center;
+      font-size:.75rem; font-weight:600;
+    }
+    .cm-bad   { color:#c0504d; text-decoration:line-through; opacity:.7; }
+    .cm-arrow { color:var(--gold); font-size:.85rem; }
+    .cm-good  { color:var(--gold-light); }
+    .cm-label { font-size:.72rem; color:var(--muted); }
+
+    /* CTA inline */
+    .compare-cta { text-align:center; }
+    .compare-cta p { font-size:1rem; color:var(--muted); margin-bottom:24px; }
+
+    @keyframes bar-grow {
+      from { width: 0 !important; }
+    }
+    .meter-fill { animation: bar-grow .9s ease forwards; }
+
     /* ── PROBLEMA ── */
     .problem-section { padding:90px 0; }
     .problem-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
@@ -348,6 +485,21 @@
       .bio-photo     { max-width:260px; margin:0 auto 48px; }
       .price-box     { padding:36px 24px; }
       .hero-price    { flex-direction:column; gap:8px; }
+
+      .compare-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .vs-divider {
+        flex-direction: row;
+        padding: 0; height: 48px; justify-content:center;
+      }
+      .vs-line { flex: none; width: 60px; height: 1px; min-height: unset; }
+      .compare-metrics {
+        flex-direction: column; gap: 0;
+      }
+      .cm-sep { width: 100%; height: 1px; }
+      .meter-bar { width: 70px; }
     }
   </style>
 </head>
@@ -421,6 +573,170 @@
           Quero atrair clientes agora
         </a>
         <p class="hero-security">🔒 Compra 100% segura · Garantia incondicional de 7 dias</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       COMPARATIVO INFOGRÁFICO
+  ══════════════════════════════════ -->
+  <section class="compare-section">
+    <div class="container">
+
+      <div class="compare-header">
+        <div class="section-tag">A diferença é real</div>
+        <h2 class="section-title">Dois advogados. Mesma faculdade.<br><span class="gold">Resultados completamente opostos.</span></h2>
+        <p class="compare-sub">O que separa um escritório cheio de um escritório vazio não é a inteligência jurídica — é ter ou não ter um sistema de aquisição de clientes.</p>
+      </div>
+
+      <!-- ── CARDS COMPARATIVOS ── -->
+      <div class="compare-grid">
+
+        <!-- SEM IMA -->
+        <div class="compare-card compare-bad">
+          <div class="compare-card-header">
+            <div class="compare-avatar bad">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+            </div>
+            <div>
+              <div class="compare-card-label bad-label">Sem Imã de Clientes</div>
+              <div class="compare-card-desc">O advogado invisível</div>
+            </div>
+          </div>
+
+          <div class="compare-meter-row">
+            <span class="meter-label">Previsibilidade de renda</span>
+            <div class="meter-bar"><div class="meter-fill bad-fill" style="width:12%"></div></div>
+            <span class="meter-pct bad-pct">12%</span>
+          </div>
+          <div class="compare-meter-row">
+            <span class="meter-label">Fluxo de novos clientes</span>
+            <div class="meter-bar"><div class="meter-fill bad-fill" style="width:8%"></div></div>
+            <span class="meter-pct bad-pct">8%</span>
+          </div>
+          <div class="compare-meter-row">
+            <span class="meter-label">Autoridade digital</span>
+            <div class="meter-bar"><div class="meter-fill bad-fill" style="width:5%"></div></div>
+            <span class="meter-pct bad-pct">5%</span>
+          </div>
+
+          <ul class="compare-list">
+            <li class="bad-item"><span class="ci-icon">✕</span> Depende exclusivamente de indicações para faturar</li>
+            <li class="bad-item"><span class="ci-icon">✕</span> Passa semanas (ou meses) sem novos casos</li>
+            <li class="bad-item"><span class="ci-icon">✕</span> Aceita qualquer cliente — até os que não pagam bem</li>
+            <li class="bad-item"><span class="ci-icon">✕</span> Ansiedade financeira constante</li>
+            <li class="bad-item"><span class="ci-icon">✕</span> Não sabe por que concorrentes têm fila de espera</li>
+            <li class="bad-item"><span class="ci-icon">✕</span> Sente que "marketing para advogado não funciona"</li>
+            <li class="bad-item"><span class="ci-icon">✕</span> Mês bom → gasta. Mês ruim → desespero</li>
+          </ul>
+
+          <div class="compare-result bad-result">
+            <div class="cr-num">0–2</div>
+            <div class="cr-label">novos clientes por mês em média</div>
+          </div>
+        </div>
+
+        <!-- DIVISOR VS -->
+        <div class="vs-divider">
+          <div class="vs-line"></div>
+          <div class="vs-badge">VS</div>
+          <div class="vs-line"></div>
+        </div>
+
+        <!-- COM IMA -->
+        <div class="compare-card compare-good">
+          <div class="compare-card-header">
+            <div class="compare-avatar good">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/><path d="M18 14l2 2 4-4" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="compare-card-label good-label">Com Imã de Clientes</div>
+              <div class="compare-card-desc">O advogado de referência</div>
+            </div>
+          </div>
+
+          <div class="compare-meter-row">
+            <span class="meter-label">Previsibilidade de renda</span>
+            <div class="meter-bar"><div class="meter-fill good-fill" style="width:91%"></div></div>
+            <span class="meter-pct good-pct">91%</span>
+          </div>
+          <div class="compare-meter-row">
+            <span class="meter-label">Fluxo de novos clientes</span>
+            <div class="meter-bar"><div class="meter-fill good-fill" style="width:87%"></div></div>
+            <span class="meter-pct good-pct">87%</span>
+          </div>
+          <div class="compare-meter-row">
+            <span class="meter-label">Autoridade digital</span>
+            <div class="meter-bar"><div class="meter-fill good-fill" style="width:94%"></div></div>
+            <span class="meter-pct good-pct">94%</span>
+          </div>
+
+          <ul class="compare-list">
+            <li class="good-item"><span class="ci-icon">✓</span> Clientes chegam prontos para contratar — por vontade própria</li>
+            <li class="good-item"><span class="ci-icon">✓</span> Agenda preenchida com consistência todo mês</li>
+            <li class="good-item"><span class="ci-icon">✓</span> Escolhe os clientes — cobra o que merece</li>
+            <li class="good-item"><span class="ci-icon">✓</span> Faturamento previsível e crescente</li>
+            <li class="good-item"><span class="ci-icon">✓</span> É visto como referência na sua área de atuação</li>
+            <li class="good-item"><span class="ci-icon">✓</span> 15 canais de aquisição ativos e 100% éticos</li>
+            <li class="good-item"><span class="ci-icon">✓</span> Escritório cresce mesmo quando está offline</li>
+          </ul>
+
+          <div class="compare-result good-result">
+            <div class="cr-num">5–10</div>
+            <div class="cr-label">novos clientes qualificados por mês</div>
+          </div>
+        </div>
+
+      </div><!-- /compare-grid -->
+
+      <!-- ── LINHA DE MÉTRICAS ── -->
+      <div class="compare-metrics">
+        <div class="cm-item">
+          <div class="cm-icon">📅</div>
+          <div class="cm-vals">
+            <span class="cm-bad">Sem sistema</span>
+            <span class="cm-arrow">→</span>
+            <span class="cm-good">Agenda cheia</span>
+          </div>
+          <div class="cm-label">Ocupação da agenda</div>
+        </div>
+        <div class="cm-sep"></div>
+        <div class="cm-item">
+          <div class="cm-icon">💰</div>
+          <div class="cm-vals">
+            <span class="cm-bad">Renda instável</span>
+            <span class="cm-arrow">→</span>
+            <span class="cm-good">Faturamento previsível</span>
+          </div>
+          <div class="cm-label">Saúde financeira</div>
+        </div>
+        <div class="cm-sep"></div>
+        <div class="cm-item">
+          <div class="cm-icon">🏆</div>
+          <div class="cm-vals">
+            <span class="cm-bad">Desconhecido</span>
+            <span class="cm-arrow">→</span>
+            <span class="cm-good">Autoridade na área</span>
+          </div>
+          <div class="cm-label">Posicionamento</div>
+        </div>
+        <div class="cm-sep"></div>
+        <div class="cm-item">
+          <div class="cm-icon">⏱</div>
+          <div class="cm-vals">
+            <span class="cm-bad">Prospecta ativamente</span>
+            <span class="cm-arrow">→</span>
+            <span class="cm-good">Clientes chegam sozinhos</span>
+          </div>
+          <div class="cm-label">Esforço de captação</div>
+        </div>
+      </div>
+
+      <!-- ── CTA INLINE ── -->
+      <div class="compare-cta">
+        <p>Você está a <strong style="color:var(--gold);">um método de distância</strong> do segundo cenário.</p>
+        <a href="SEU_LINK_HOTMART_AQUI" class="btn" target="_blank" rel="noopener noreferrer">Quero ser o advogado com agenda cheia</a>
       </div>
 
     </div>
