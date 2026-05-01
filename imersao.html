@@ -145,17 +145,17 @@
       overflow: hidden;
       border-bottom: 1px solid rgba(201,168,76,.12);
     }
-    /* coluna esquerda — conteúdo (sobre o visual) */
+    /* coluna esquerda — conteúdo */
     .hero-content {
       position: relative; z-index: 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 100px 40px 56px clamp(48px, 8vw, 120px);
-      width: 52%;
+      padding: 120px clamp(32px, 4vw, 64px) 64px clamp(48px, 7vw, 100px);
+      width: 58%;
       min-height: 100vh;
     }
-    /* visual ocupa o hero inteiro em absolute — sem linha divisória */
+    /* visual ocupa o hero inteiro em absolute */
     .hero-visual {
       position: absolute;
       inset: 0;
@@ -163,15 +163,16 @@
       overflow: hidden;
       background: #07060a;
     }
-    /* gradient forte da esquerda cobrindo o conteúdo */
+    /* gradient mais forte — empurra o background para direita */
     .hero-visual::before {
       content: '';
       position: absolute; inset: 0; z-index: 10;
       background: linear-gradient(90deg,
         var(--bg) 0%,
-        var(--bg) 35%,
-        rgba(12,11,8,.85) 52%,
-        rgba(12,11,8,.3) 72%,
+        var(--bg) 45%,
+        rgba(12,11,8,.92) 60%,
+        rgba(12,11,8,.55) 75%,
+        rgba(12,11,8,.15) 88%,
         transparent 100%
       );
     }
@@ -179,7 +180,7 @@
     .hero-visual::after {
       content: '';
       position: absolute; bottom: 0; left: 0; right: 0;
-      height: 140px; z-index: 11;
+      height: 160px; z-index: 11;
       background: linear-gradient(to top, var(--bg), transparent);
     }
     .road-scene {
@@ -231,18 +232,18 @@
     /* headline principal */
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.1rem, 2vw, 1.6rem);
-      font-weight: 700; line-height: 1.35;
-      margin-bottom: 16px;
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      font-weight: 700; line-height: 1.25;
+      margin-bottom: 20px;
       color: var(--text);
     }
     .hero h1 strong { color: var(--gold); font-style: italic; }
 
-    .check-list { list-style: none; margin-bottom: 16px; }
+    .check-list { list-style: none; margin-bottom: 24px; }
     .check-list li {
-      display: flex; align-items: flex-start; gap: 8px;
-      font-size: .82rem; color: var(--text);
-      margin-bottom: 7px; line-height: 1.4;
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .95rem; color: var(--text);
+      margin-bottom: 10px; line-height: 1.45;
     }
     .check-list li::before {
       content: '✓';
@@ -256,40 +257,36 @@
 
     /* preço em destaque no hero */
     .hero-price-block {
-      background: rgba(201,168,76,.06);
-      border: 1px solid rgba(201,168,76,.2);
-      border-radius: 10px;
-      padding: 14px 18px 16px;
-      margin-bottom: 16px;
+      background: transparent;
+      margin-bottom: 20px;
       align-self: flex-start;
-      min-width: 240px;
     }
     .hero-price-block .lote-tag {
       display: inline-block;
       background: rgba(201,168,76,.15);
       border: 1px solid rgba(201,168,76,.4);
       border-radius: 100px;
-      padding: 2px 10px;
-      font-size: .65rem; font-weight: 700;
+      padding: 3px 12px;
+      font-size: .68rem; font-weight: 700;
       letter-spacing: .12em; text-transform: uppercase;
       color: var(--gold-light);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .hero-price-block .from-line {
-      font-size: .85rem; color: var(--muted); margin-bottom: 2px;
+      font-size: .9rem; color: var(--muted); margin-bottom: 0;
     }
     .hero-price-block .from-line s {
       color: #c0504d; font-weight: 600;
     }
     .hero-price-block .amount {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-size: clamp(3.2rem, 6vw, 5rem);
       font-weight: 700;
       color: var(--gold); line-height: 1;
     }
-    .hero-price-block .amount sup { font-size: 1.3rem; vertical-align: top; margin-top: 8px; }
+    .hero-price-block .amount sup { font-size: 1.6rem; vertical-align: top; margin-top: 10px; }
     .hero-security {
-      margin-top: 8px; font-size: .75rem; color: var(--muted);
+      margin-top: 10px; font-size: .78rem; color: var(--muted);
     }
 
     /* ── STRIP DE CONFIANÇA ── */
@@ -609,13 +606,13 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
-      .hero-content { width: 100%; padding: 100px 24px 56px; }
-      .hero-visual::before { background: rgba(10, 9, 7, .88); }
-      .hero-visual .road-scene { background-position: center right; opacity: .35; }
+      .hero-content { width: 100%; padding: 100px 24px 64px; }
+      .hero-visual::before { background: rgba(10, 9, 7, .9); }
+      .hero-visual .road-scene { background-position: center right; opacity: .25; }
       .hero-inner { max-width: 100%; }
       .hero-logo { max-width: 180px; }
-      .hero h1 { font-size: clamp(1rem, 4vw, 1.35rem); }
-      .check-list li { font-size: .8rem; }
+      .hero h1 { font-size: clamp(1.4rem, 5vw, 2rem); }
+      .check-list li { font-size: .88rem; }
       .days-grid { grid-template-columns: 1fr; }
       .includes-grid { grid-template-columns: 1fr; }
       .bio-inner { grid-template-columns: 1fr; }
@@ -626,7 +623,7 @@
       .trust-strip .container { gap: 20px; }
       .hero-logo { max-width: 150px; }
       .hero-date { font-size: .68rem; padding: 5px 10px; }
-      .hero h1 { font-size: clamp(.95rem, 4.5vw, 1.15rem); }
+      .hero h1 { font-size: clamp(1.3rem, 5.5vw, 1.7rem); }
       .hero-badge { font-size: .62rem; }
       .check-list li { font-size: .78rem; }
       .hero-price-block { min-width: 0; width: 100%; }
@@ -868,7 +865,7 @@
         <div class="amount"><sup>R$</sup>37<span style="font-size:2rem">,00</span></div>
       </div>
 
-      <a href="SEU_LINK_HUBLA_AQUI" class="btn" style="align-self:flex-start;" target="_blank" rel="noopener noreferrer">
+      <a href="SEU_LINK_HUBLA_AQUI" class="btn btn-lg" style="align-self:flex-start;min-width:280px;text-align:center;" target="_blank" rel="noopener noreferrer">
         Pegar meu ingresso! &rsaquo;
       </a>
 
