@@ -202,12 +202,14 @@
       margin-bottom: 10px;
     }
     .hero-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-    /* logo do evento */
+    /* logo do evento — margens negativas compensam o espaço transparente do PNG */
     .hero-logo {
       width: auto;
-      max-width: 240px;
-      margin-bottom: 14px;
+      max-width: 220px;
       align-self: flex-start;
+      margin-top: -16px;
+      margin-left: -14px;
+      margin-bottom: -4px;
     }
     /* data do evento */
     .hero-date {
@@ -842,10 +844,6 @@
 
     <!-- conteúdo sobre o visual -->
     <div class="hero-content">
-
-      <div class="hero-badge">
-        <span class="dot"></span> 2 dias ao vivo · vagas limitadas
-      </div>
 
       <img src="logo-imersao.png" alt="Imersão Direito de Trânsito na Prática" class="hero-logo" />
 
