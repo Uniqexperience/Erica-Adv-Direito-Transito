@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compra Confirmada — Imersão Direito de Trânsito na Prática</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '309780160967181');
+  fbq('track', 'PageView');
+  fbq('track', 'Purchase');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=309780160967181&ev=Purchase&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --gold-dark: #a07832;
+      --bg: #0c0b08;
+      --bg-2: #131109;
+      --bg-3: #1a1710;
+      --text: #f0ead8;
+      --muted: #9e9580;
+      --green: #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-ring {
+      0%   { transform: scale(1); opacity: .5; }
+      70%  { transform: scale(1.22); opacity: 0; }
+      100% { transform: scale(1.22); opacity: 0; }
+    }
+    @keyframes pulse-wpp {
+      0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,.4); }
+      50%       { box-shadow: 0 10px 48px rgba(37,211,102,.7); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(201,168,76,.15);
+      background: rgba(12,11,8,.96);
+    }
+    header .container {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; letter-spacing: .04em;
+      color: var(--text); text-decoration: none;
+    }
+    .logo span { color: var(--gold); }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      padding: 60px 0 80px;
+    }
+
+    .card {
+      text-align: center;
+      animation: fadeUp .6s ease both;
+    }
+
+    /* check animado */
+    .check-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 88px; height: 88px;
+      margin-bottom: 28px;
+    }
+    .check-wrap::before {
+      content: '';
+      position: absolute; inset: 0; border-radius: 50%;
+      background: rgba(201,168,76,.18);
+      animation: pulse-ring 2.2s ease-out infinite;
+    }
+    .check-circle {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 32px rgba(201,168,76,.4);
+    }
+    .check-circle svg {
+      width: 42px; height: 42px;
+      stroke: #1a1200; stroke-width: 3;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold-dark);
+      padding: 5px 14px; border-radius: 2px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+      font-weight: 700; line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    h1 .gold { color: var(--gold); }
+
+    .subtitle {
+      font-size: 1rem; color: var(--muted);
+      max-width: 520px; margin: 0 auto 16px;
+      line-height: 1.7;
+    }
+
+    /* data do evento */
+    .event-date {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201,168,76,.08);
+      border: 1px solid rgba(201,168,76,.25);
+      border-radius: 6px; padding: 7px 16px;
+      font-size: .82rem; color: var(--gold-light);
+      font-weight: 600; margin-bottom: 44px;
+    }
+
+    /* ── ALERTA GRUPO — elemento principal ── */
+    .group-alert {
+      background: rgba(37,211,102,.06);
+      border: 2px solid rgba(37,211,102,.35);
+      border-radius: 16px;
+      padding: 40px 36px 36px;
+      margin-bottom: 32px;
+      animation: fadeUp .8s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+    .group-alert::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, #25D366, transparent);
+    }
+
+    .alert-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(37,211,102,.15);
+      border: 1px solid rgba(37,211,102,.4);
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-size: .68rem; font-weight: 800;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: #4ade80;
+      margin-bottom: 20px;
+    }
+    .alert-badge .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #25D366;
+      animation: pulse-ring .8s ease-out infinite;
+    }
+
+    .wpp-icon {
+      width: 72px; height: 72px;
+      margin: 0 auto 20px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 28px rgba(37,211,102,.4);
+    }
+    .wpp-icon svg { width: 40px; height: 40px; fill: #fff; }
+
+    .group-alert h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700; margin-bottom: 12px;
+    }
+
+    .group-alert .desc {
+      font-size: .97rem; color: var(--muted);
+      line-height: 1.7; margin-bottom: 28px;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    .group-alert .desc strong { color: var(--text); }
+
+    /* lista do que vem no grupo */
+    .group-list {
+      list-style: none;
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto 32px;
+    }
+    .group-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .9rem; color: var(--text);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .group-list li:last-child { border-bottom: none; }
+    .group-list li::before {
+      content: '✓';
+      flex-shrink: 0;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(37,211,102,.2);
+      border: 1px solid rgba(37,211,102,.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .6rem; font-weight: 900; color: #4ade80;
+      margin-top: 2px;
+    }
+
+    .btn-wpp {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--green);
+      color: #fff; font-weight: 800;
+      font-size: 1.05rem;
+      padding: 18px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      transition: transform .2s, box-shadow .2s;
+      animation: pulse-wpp 2.5s ease-in-out infinite;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-wpp:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
+    .btn-wpp svg { width: 24px; height: 24px; fill: #fff; flex-shrink: 0; }
+
+    .warning-note {
+      margin-top: 14px;
+      font-size: .8rem;
+      color: #f87171;
+      font-weight: 600;
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      display: flex; gap: 14px;
+      margin-top: 32px;
+      text-align: left;
+      flex-wrap: wrap;
+      animation: fadeUp 1s ease both;
+    }
+    .step {
+      flex: 1; min-width: 160px;
+      background: var(--bg-2);
+      border: 1px solid rgba(201,168,76,.12);
+      border-radius: 10px;
+      padding: 20px 16px;
+    }
+    .step-num {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-size: .78rem; font-weight: 800; color: #1a1200;
+      margin-bottom: 10px;
+    }
+    .step h3 { font-size: .9rem; font-weight: 700; margin-bottom: 4px; }
+    .step p { font-size: .8rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid rgba(201,168,76,.1);
+      text-align: center;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      .group-alert { padding: 28px 20px 24px; }
+      .steps { flex-direction: column; }
+      .btn-wpp { font-size: .95rem; padding: 16px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a class="logo" href="#">Erica <span>Avallone</span></a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="card">
+
+        <!-- check de confirmação -->
+        <div class="check-wrap">
+          <div class="check-circle">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+          </div>
+        </div>
+
+        <div class="section-tag">Compra confirmada ✓</div>
+
+        <h1>Você está dentro da<br><span class="gold">Imersão Direito de Trânsito</span></h1>
+
+        <p class="subtitle">
+          Seu ingresso foi confirmado. Agora há <strong style="color:var(--text)">um passo obrigatório</strong> para garantir seu acesso a tudo.
+        </p>
+
+        <div class="event-date">
+          📅 23 e 24 de Maio &nbsp;·&nbsp; Sábado e Domingo &nbsp;·&nbsp; 9h às 17h
+        </div>
+
+        <!-- bloco principal — grupo WhatsApp -->
+        <div class="group-alert">
+
+          <div class="alert-badge">
+            <span class="dot"></span> Ação obrigatória agora
+          </div>
+
+          <div class="wpp-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.01L2.005 22l5.137-1.318A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.7 0-3.286-.45-4.655-1.233l-.333-.197-3.048.782.806-2.966-.216-.35A7.964 7.964 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+            </svg>
+          </div>
+
+          <h2>Entre agora no Grupo da Imersão</h2>
+
+          <p class="desc">
+            É <strong>pelo grupo do WhatsApp que você receberá o link da transmissão ao vivo</strong>, os materiais exclusivos, lembretes e todo o suporte durante os 2 dias de evento.<br><br>
+            <strong>Quem não entrar no grupo pode perder o acesso ao evento.</strong>
+          </p>
+
+          <ul class="group-list">
+            <li>Link da transmissão ao vivo (23 e 24 de Maio)</li>
+            <li>Materiais complementares exclusivos</li>
+            <li>Lembretes e avisos importantes antes do evento</li>
+            <li>Suporte direto com a equipe da Dra. Erica</li>
+            <li>Tira-dúvidas com os demais participantes</li>
+          </ul>
+
+          <a href="SEU_LINK_GRUPO_WHATSAPP" class="btn-wpp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.01L2.005 22l5.137-1.318A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.7 0-3.286-.45-4.655-1.233l-.333-.197-3.048.782.806-2.966-.216-.35A7.964 7.964 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+            </svg>
+            Entrar no Grupo Agora
+          </a>
+
+          <p class="warning-note">⚠️ Não feche essa página antes de entrar no grupo.</p>
+
+        </div>
+
+        <!-- 3 passos -->
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Entre no grupo</h3>
+            <p>Clique no botão acima e acesse o grupo exclusivo da imersão no WhatsApp.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Salve na agenda</h3>
+            <p>23 e 24 de Maio, das 9h às 17h. Reserve os dois dias completos.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Aguarde o link</h3>
+            <p>O link da transmissão ao vivo será enviado pelo grupo antes do evento.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Erica Avallone · Todos os direitos reservados
+    </div>
+  </footer>
+
+</body>
+</html>
