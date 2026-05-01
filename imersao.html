@@ -204,10 +204,11 @@
     .hero-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
     /* logo do evento */
     .hero-logo {
-      height: 150px;
-      width: auto;
+      max-width: 210px;
+      width: 100%;
+      height: auto;
       align-self: flex-start;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     /* data do evento */
     .hero-date {
@@ -612,7 +613,7 @@
       .hero-visual::before { background: rgba(10, 9, 7, .88); }
       .hero-visual .road-scene { background-position: center right; opacity: .35; }
       .hero-inner { max-width: 100%; }
-      .hero-logo { height: 120px; }
+      .hero-logo { max-width: 180px; }
       .hero h1 { font-size: clamp(1rem, 4vw, 1.35rem); }
       .check-list li { font-size: .8rem; }
       .days-grid { grid-template-columns: 1fr; }
@@ -623,7 +624,7 @@
     }
     @media (max-width: 520px) {
       .trust-strip .container { gap: 20px; }
-      .hero-logo { height: 100px; }
+      .hero-logo { max-width: 150px; }
       .hero-date { font-size: .68rem; padding: 5px 10px; }
       .hero h1 { font-size: clamp(.95rem, 4.5vw, 1.15rem); }
       .hero-badge { font-size: .62rem; }
