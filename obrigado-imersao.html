@@ -92,7 +92,7 @@
     /* ── MAIN ── */
     main {
       flex: 1;
-      padding: 60px 0 80px;
+      padding: 32px 0 60px;
     }
 
     .card {
@@ -105,8 +105,8 @@
       position: relative;
       display: inline-flex;
       align-items: center; justify-content: center;
-      width: 88px; height: 88px;
-      margin-bottom: 28px;
+      width: 68px; height: 68px;
+      margin-bottom: 14px;
     }
     .check-wrap::before {
       content: '';
@@ -115,13 +115,13 @@
       animation: pulse-ring 2.2s ease-out infinite;
     }
     .check-circle {
-      width: 88px; height: 88px; border-radius: 50%;
+      width: 68px; height: 68px; border-radius: 50%;
       background: linear-gradient(135deg, var(--gold-dark), var(--gold));
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 8px 32px rgba(201,168,76,.4);
     }
     .check-circle svg {
-      width: 42px; height: 42px;
+      width: 32px; height: 32px;
       stroke: #1a1200; stroke-width: 3;
       fill: none; stroke-linecap: round; stroke-linejoin: round;
     }
@@ -137,16 +137,16 @@
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
       font-weight: 700; line-height: 1.2;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
     h1 .gold { color: var(--gold); }
 
     .subtitle {
-      font-size: 1rem; color: var(--muted);
-      max-width: 520px; margin: 0 auto 16px;
-      line-height: 1.7;
+      font-size: .95rem; color: var(--muted);
+      max-width: 480px; margin: 0 auto 10px;
+      line-height: 1.6;
     }
 
     /* data do evento */
@@ -154,9 +154,9 @@
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(201,168,76,.08);
       border: 1px solid rgba(201,168,76,.25);
-      border-radius: 6px; padding: 7px 16px;
-      font-size: .82rem; color: var(--gold-light);
-      font-weight: 600; margin-bottom: 44px;
+      border-radius: 6px; padding: 6px 14px;
+      font-size: .78rem; color: var(--gold-light);
+      font-weight: 600; margin-bottom: 20px;
     }
 
     /* ── ALERTA GRUPO — elemento principal ── */
@@ -164,8 +164,8 @@
       background: rgba(37,211,102,.06);
       border: 2px solid rgba(37,211,102,.35);
       border-radius: 16px;
-      padding: 40px 36px 36px;
-      margin-bottom: 32px;
+      padding: 24px 28px 24px;
+      margin-bottom: 28px;
       animation: fadeUp .8s ease both;
       position: relative;
       overflow: hidden;
@@ -194,25 +194,25 @@
     }
 
     .wpp-icon {
-      width: 72px; height: 72px;
-      margin: 0 auto 20px;
+      width: 52px; height: 52px;
+      margin: 0 auto 12px;
       background: var(--green);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 28px rgba(37,211,102,.4);
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
     }
-    .wpp-icon svg { width: 40px; height: 40px; fill: #fff; }
+    .wpp-icon svg { width: 30px; height: 30px; fill: #fff; }
 
     .group-alert h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.4rem, 3vw, 1.9rem);
-      font-weight: 700; margin-bottom: 12px;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 700; margin-bottom: 8px;
     }
 
     .group-alert .desc {
-      font-size: .97rem; color: var(--muted);
-      line-height: 1.7; margin-bottom: 28px;
-      max-width: 480px; margin-left: auto; margin-right: auto;
+      font-size: .9rem; color: var(--muted);
+      line-height: 1.6; margin-bottom: 18px;
+      max-width: 460px; margin-left: auto; margin-right: auto;
     }
     .group-alert .desc strong { color: var(--text); }
 
@@ -357,17 +357,8 @@
           <h2>Entre agora no Grupo da Imersão</h2>
 
           <p class="desc">
-            É <strong>pelo grupo do WhatsApp que você receberá o link da transmissão ao vivo</strong>, os materiais exclusivos, lembretes e todo o suporte durante os 2 dias de evento.<br><br>
-            <strong>Quem não entrar no grupo pode perder o acesso ao evento.</strong>
+            É <strong>pelo grupo do WhatsApp que você receberá o link da transmissão ao vivo</strong> e todos os materiais. <strong>Quem não entrar pode perder o acesso ao evento.</strong>
           </p>
-
-          <ul class="group-list">
-            <li>Link da transmissão ao vivo (23 e 24 de Maio)</li>
-            <li>Materiais complementares exclusivos</li>
-            <li>Lembretes e avisos importantes antes do evento</li>
-            <li>Suporte direto com a equipe da Dra. Erica</li>
-            <li>Tira-dúvidas com os demais participantes</li>
-          </ul>
 
           <a href="SEU_LINK_GRUPO_WHATSAPP" class="btn-wpp">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -378,6 +369,14 @@
           </a>
 
           <p class="warning-note">⚠️ Não feche essa página antes de entrar no grupo.</p>
+
+          <ul class="group-list" style="margin-top:20px;">
+            <li>Link da transmissão ao vivo (23 e 24 de Maio)</li>
+            <li>Materiais complementares exclusivos</li>
+            <li>Lembretes e avisos importantes antes do evento</li>
+            <li>Suporte direto com a equipe da Dra. Erica</li>
+            <li>Tira-dúvidas com os demais participantes</li>
+          </ul>
 
         </div>
 
