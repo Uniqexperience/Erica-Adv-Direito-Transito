@@ -202,14 +202,12 @@
       margin-bottom: 10px;
     }
     .hero-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-    /* logo do evento — margens negativas compensam o espaço transparente do PNG */
+    /* logo do evento */
     .hero-logo {
+      height: 150px;
       width: auto;
-      max-width: 220px;
       align-self: flex-start;
-      margin-top: -16px;
-      margin-left: -14px;
-      margin-bottom: -4px;
+      margin-bottom: 8px;
     }
     /* data do evento */
     .hero-date {
@@ -614,7 +612,7 @@
       .hero-visual::before { background: rgba(10, 9, 7, .88); }
       .hero-visual .road-scene { background-position: center right; opacity: .35; }
       .hero-inner { max-width: 100%; }
-      .hero-logo { max-width: 200px; }
+      .hero-logo { height: 120px; }
       .hero h1 { font-size: clamp(1rem, 4vw, 1.35rem); }
       .check-list li { font-size: .8rem; }
       .days-grid { grid-template-columns: 1fr; }
@@ -625,7 +623,7 @@
     }
     @media (max-width: 520px) {
       .trust-strip .container { gap: 20px; }
-      .hero-logo { max-width: 165px; }
+      .hero-logo { height: 100px; }
       .hero-date { font-size: .68rem; padding: 5px 10px; }
       .hero h1 { font-size: clamp(.95rem, 4.5vw, 1.15rem); }
       .hero-badge { font-size: .62rem; }
