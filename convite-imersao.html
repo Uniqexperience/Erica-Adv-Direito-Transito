@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Você ganhou um convite — Imersão Direito de Trânsito na Prática</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '309780160967181');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=309780160967181&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --gold-dark: #a07832;
+      --bg: #0c0b08;
+      --bg-2: #131109;
+      --bg-3: #1a1710;
+      --text: #f0ead8;
+      --muted: #9e9580;
+      --green: #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes pulse-ring {
+      0%   { transform: scale(1); opacity: .5; }
+      70%  { transform: scale(1.22); opacity: 0; }
+      100% { transform: scale(1.22); opacity: 0; }
+    }
+    @keyframes pulse-wpp {
+      0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,.4); }
+      50%       { box-shadow: 0 12px 48px rgba(37,211,102,.7); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-6px); }
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(201,168,76,.15);
+      background: rgba(12,11,8,.96);
+    }
+    header .container {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; letter-spacing: .04em;
+      color: var(--text); text-decoration: none;
+    }
+    .logo span { color: var(--gold); }
+
+    /* ── MAIN ── */
+    main { flex: 1; padding: 48px 0 72px; }
+
+    .card {
+      text-align: center;
+      animation: fadeUp .6s ease both;
+    }
+
+    /* ícone presente/convite */
+    .gift-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 80px; height: 80px;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+    .gift-wrap::before {
+      content: '';
+      position: absolute; inset: 0; border-radius: 50%;
+      background: rgba(201,168,76,.15);
+      animation: pulse-ring 2.5s ease-out infinite;
+    }
+    .gift-circle {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 32px rgba(201,168,76,.45);
+      font-size: 2rem;
+    }
+
+    /* badge bonus */
+    .bonus-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: linear-gradient(100deg,#b8860b 0%,#f5c842 35%,#ffe066 50%,#f5c842 65%,#b8860b 100%);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+      color: #1a1200;
+      font-size: .68rem; font-weight: 800;
+      letter-spacing: .16em; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4.5vw, 2.9rem);
+      font-weight: 700; line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    h1 .gold { color: var(--gold); }
+
+    .subtitle {
+      font-size: 1rem; color: var(--muted);
+      max-width: 500px; margin: 0 auto 24px;
+      line-height: 1.7;
+    }
+    .subtitle strong { color: var(--text); }
+
+    /* card do evento */
+    .event-card {
+      background: var(--bg-3);
+      border: 1px solid rgba(201,168,76,.25);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      animation: fadeUp .75s ease both;
+    }
+    .event-card .logo-img {
+      height: 90px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+    .event-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+    .event-details {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 10px;
+      margin-bottom: 0;
+    }
+    .event-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(201,168,76,.08);
+      border: 1px solid rgba(201,168,76,.22);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: .78rem; color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* bloco grupo WhatsApp */
+    .group-box {
+      background: rgba(37,211,102,.06);
+      border: 2px solid rgba(37,211,102,.3);
+      border-radius: 14px;
+      padding: 28px 28px 24px;
+      margin-bottom: 24px;
+      animation: fadeUp .9s ease both;
+      position: relative; overflow: hidden;
+    }
+    .group-box::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, #25D366, transparent);
+    }
+    .alert-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(37,211,102,.15);
+      border: 1px solid rgba(37,211,102,.4);
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-size: .68rem; font-weight: 800;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: #4ade80;
+      margin-bottom: 14px;
+    }
+    .alert-badge .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #25D366;
+      animation: pulse-ring .8s ease-out infinite;
+    }
+    .wpp-icon {
+      width: 52px; height: 52px;
+      margin: 0 auto 12px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+    }
+    .wpp-icon svg { width: 30px; height: 30px; fill: #fff; }
+    .group-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .group-box p {
+      font-size: .9rem; color: var(--muted);
+      line-height: 1.65; margin-bottom: 20px;
+      max-width: 440px; margin-left: auto; margin-right: auto;
+    }
+    .group-box p strong { color: var(--text); }
+
+    .btn-wpp {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--green);
+      color: #fff; font-weight: 800;
+      font-size: 1.05rem;
+      padding: 18px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      transition: transform .2s, box-shadow .2s;
+      animation: pulse-wpp 2.5s ease-in-out infinite;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-wpp:hover { transform: translateY(-3px); }
+    .btn-wpp svg { width: 24px; height: 24px; fill: #fff; flex-shrink: 0; }
+
+    .warning-note {
+      margin-top: 12px;
+      font-size: .78rem; color: #f87171; font-weight: 600;
+    }
+
+    /* passos */
+    .steps {
+      display: flex; gap: 12px;
+      margin-top: 24px; text-align: left; flex-wrap: wrap;
+      animation: fadeUp 1.1s ease both;
+    }
+    .step {
+      flex: 1; min-width: 150px;
+      background: var(--bg-2);
+      border: 1px solid rgba(201,168,76,.12);
+      border-radius: 10px; padding: 18px 16px;
+    }
+    .step-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 800; color: #1a1200;
+      margin-bottom: 10px;
+    }
+    .step h4 { font-size: .88rem; font-weight: 700; margin-bottom: 4px; }
+    .step p { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+
+    /* footer */
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid rgba(201,168,76,.1);
+      text-align: center;
+      font-size: .78rem; color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      .event-card { padding: 20px 16px; }
+      .group-box { padding: 22px 16px 20px; }
+      .steps { flex-direction: column; }
+      .btn-wpp { font-size: .95rem; padding: 16px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a class="logo" href="#">Erica <span>Avallone</span></a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="card">
+
+        <div class="gift-wrap">
+          <div class="gift-circle">🎟</div>
+        </div>
+
+        <div class="bonus-badge">✦ &nbsp;Bônus exclusivo desbloqueado</div>
+
+        <h1>Você ganhou um ingresso<br><span class="gold">para a Imersão!</span></h1>
+
+        <p class="subtitle">
+          Como parte do seu acesso ao Guia Prático, você recebeu um <strong>convite gratuito</strong> para a Imersão Direito de Trânsito na Prática com a Dra. Erica Avallone.
+        </p>
+
+        <!-- card do evento -->
+        <div class="event-card">
+          <img src="logo-imersao.png" alt="Imersão Direito de Trânsito na Prática" class="logo-img" />
+          <h2>Imersão Direito de Trânsito na Prática</h2>
+          <div class="event-details">
+            <span class="event-pill">📅 23 e 24 de Maio</span>
+            <span class="event-pill">🗓 Sábado e Domingo</span>
+            <span class="event-pill">🕘 9h às 17h</span>
+            <span class="event-pill">💻 Online ao vivo</span>
+          </div>
+        </div>
+
+        <!-- grupo WhatsApp -->
+        <div class="group-box">
+
+          <div class="alert-badge">
+            <span class="dot"></span> Ação necessária agora
+          </div>
+
+          <div class="wpp-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.01L2.005 22l5.137-1.318A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.7 0-3.286-.45-4.655-1.233l-.333-.197-3.048.782.806-2.966-.216-.35A7.964 7.964 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+            </svg>
+          </div>
+
+          <h3>Entre no Grupo da Imersão</h3>
+
+          <p>
+            É pelo grupo que você vai receber o <strong>link da transmissão ao vivo</strong>, os materiais exclusivos e todos os avisos antes do evento. <strong>Não perca seu acesso.</strong>
+          </p>
+
+          <a href="https://chat.whatsapp.com/L5DcTsDLA9c1oSJ8KjwqKa?mode=gi_t" class="btn-wpp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5.01L2.005 22l5.137-1.318A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.7 0-3.286-.45-4.655-1.233l-.333-.197-3.048.782.806-2.966-.216-.35A7.964 7.964 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+            </svg>
+            Entrar no Grupo Agora
+          </a>
+
+          <p class="warning-note">⚠️ Não feche essa página antes de entrar no grupo.</p>
+
+        </div>
+
+        <!-- 3 passos -->
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h4>Entre no grupo</h4>
+            <p>Clique no botão e acesse o grupo exclusivo da imersão.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h4>Salve na agenda</h4>
+            <p>23 e 24 de Maio, das 9h às 17h. Reserve os dois dias.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h4>Aguarde o link</h4>
+            <p>O link da transmissão será enviado pelo grupo antes do evento.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Erica Avallone · Todos os direitos reservados
+    </div>
+  </footer>
+
+</body>
+</html>
