@@ -93,7 +93,7 @@
     .logo span { color: var(--gold); }
 
     /* ── MAIN ── */
-    main { flex: 1; padding: 48px 0 72px; }
+    main { flex: 1; padding: 28px 0 60px; }
 
     .card {
       text-align: center;
@@ -105,8 +105,8 @@
       position: relative;
       display: inline-flex;
       align-items: center; justify-content: center;
-      width: 80px; height: 80px;
-      margin-bottom: 20px;
+      width: 60px; height: 60px;
+      margin-bottom: 12px;
       animation: float 3s ease-in-out infinite;
     }
     .gift-wrap::before {
@@ -116,11 +116,11 @@
       animation: pulse-ring 2.5s ease-out infinite;
     }
     .gift-circle {
-      width: 80px; height: 80px; border-radius: 50%;
+      width: 60px; height: 60px; border-radius: 50%;
       background: linear-gradient(135deg, var(--gold-dark), var(--gold));
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 8px 32px rgba(201,168,76,.45);
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
 
     /* badge bonus */
@@ -130,24 +130,24 @@
       background-size: 200% auto;
       animation: shimmer 3s linear infinite;
       color: #1a1200;
-      font-size: .68rem; font-weight: 800;
+      font-size: .65rem; font-weight: 800;
       letter-spacing: .16em; text-transform: uppercase;
-      padding: 5px 16px; border-radius: 100px;
-      margin-bottom: 20px;
+      padding: 4px 14px; border-radius: 100px;
+      margin-bottom: 12px;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4.5vw, 2.9rem);
+      font-size: clamp(1.5rem, 3.8vw, 2.4rem);
       font-weight: 700; line-height: 1.2;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     h1 .gold { color: var(--gold); }
 
     .subtitle {
-      font-size: 1rem; color: var(--muted);
-      max-width: 500px; margin: 0 auto 24px;
-      line-height: 1.7;
+      font-size: .92rem; color: var(--muted);
+      max-width: 480px; margin: 0 auto 16px;
+      line-height: 1.6;
     }
     .subtitle strong { color: var(--text); }
 
@@ -191,8 +191,8 @@
       background: rgba(37,211,102,.06);
       border: 2px solid rgba(37,211,102,.3);
       border-radius: 14px;
-      padding: 28px 28px 24px;
-      margin-bottom: 24px;
+      padding: 20px 24px 20px;
+      margin-bottom: 20px;
       animation: fadeUp .9s ease both;
       position: relative; overflow: hidden;
     }
@@ -218,23 +218,23 @@
       animation: pulse-ring .8s ease-out infinite;
     }
     .wpp-icon {
-      width: 52px; height: 52px;
-      margin: 0 auto 12px;
+      width: 44px; height: 44px;
+      margin: 0 auto 10px;
       background: var(--green);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 20px rgba(37,211,102,.4);
     }
-    .wpp-icon svg { width: 30px; height: 30px; fill: #fff; }
+    .wpp-icon svg { width: 26px; height: 26px; fill: #fff; }
     .group-box h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem; font-weight: 700;
-      margin-bottom: 8px;
+      font-size: 1.1rem; font-weight: 700;
+      margin-bottom: 6px;
     }
     .group-box p {
-      font-size: .9rem; color: var(--muted);
-      line-height: 1.65; margin-bottom: 20px;
-      max-width: 440px; margin-left: auto; margin-right: auto;
+      font-size: .85rem; color: var(--muted);
+      line-height: 1.55; margin-bottom: 16px;
+      max-width: 420px; margin-left: auto; margin-right: auto;
     }
     .group-box p strong { color: var(--text); }
 
@@ -320,22 +320,10 @@
         <h1>Você ganhou um ingresso<br><span class="gold">para a Imersão!</span></h1>
 
         <p class="subtitle">
-          Como parte do seu acesso ao Guia Prático, você recebeu um <strong>convite gratuito</strong> para a Imersão Direito de Trânsito na Prática com a Dra. Erica Avallone.
+          Como parte do seu acesso ao Guia Prático, você recebeu um <strong>convite gratuito</strong> para a Imersão com a Dra. Erica Avallone — <strong>23 e 24 de Maio, 9h às 17h.</strong>
         </p>
 
-        <!-- card do evento -->
-        <div class="event-card">
-          <img src="logo-imersao.png" alt="Imersão Direito de Trânsito na Prática" class="logo-img" />
-          <h2>Imersão Direito de Trânsito na Prática</h2>
-          <div class="event-details">
-            <span class="event-pill">📅 23 e 24 de Maio</span>
-            <span class="event-pill">🗓 Sábado e Domingo</span>
-            <span class="event-pill">🕘 9h às 17h</span>
-            <span class="event-pill">💻 Online ao vivo</span>
-          </div>
-        </div>
-
-        <!-- grupo WhatsApp -->
+        <!-- grupo WhatsApp — aparece antes do card -->
         <div class="group-box">
 
           <div class="alert-badge">
@@ -365,6 +353,18 @@
 
           <p class="warning-note">⚠️ Não feche essa página antes de entrar no grupo.</p>
 
+        </div>
+
+        <!-- card do evento -->
+        <div class="event-card">
+          <img src="logo-imersao.png" alt="Imersão Direito de Trânsito na Prática" class="logo-img" />
+          <h2>Imersão Direito de Trânsito na Prática</h2>
+          <div class="event-details">
+            <span class="event-pill">📅 23 e 24 de Maio</span>
+            <span class="event-pill">🗓 Sábado e Domingo</span>
+            <span class="event-pill">🕘 9h às 17h</span>
+            <span class="event-pill">💻 Online ao vivo</span>
+          </div>
         </div>
 
         <!-- 3 passos -->
